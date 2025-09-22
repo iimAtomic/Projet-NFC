@@ -1,59 +1,116 @@
-# ProjetNfc
+# Tapfolio 🚀
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.2.
+Une application Angular 17 moderne pour créer des portfolios professionnels numériques.
 
-## Development server
+## ✨ Fonctionnalités
 
-To start a local development server, run:
+- **Portfolio Public** : Page publique avec design moderne et responsive
+- **Authentification** : Système de connexion/inscription avec guards
+- **Dashboard** : Interface d'édition de profil avec FormArray pour les expériences
+- **Panel Admin** : Gestion des utilisateurs pour les administrateurs
+- **Thème Sombre** : Design moderne avec Tailwind CSS et accents violets
+- **Tests** : Couverture de tests unitaires et d'intégration
 
-```bash
-ng serve
-```
+## 🛠️ Technologies
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+- **Angular 17** avec Standalone Components
+- **Tailwind CSS** pour le styling
+- **TypeScript** en mode strict
+- **Angular Signals** pour la gestion d'état
+- **RxJS** pour la programmation réactive
+- **ESLint + Prettier** pour la qualité du code
+- **Husky** pour les pre-commit hooks
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
+## 🚀 Installation
 
 ```bash
-ng build
+# Installer les dépendances
+npm install
+
+# Installer Husky pour les pre-commit hooks
+npm run prepare
+
+# Démarrer le serveur de développement
+npm start
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+## 📝 Scripts disponibles
 
 ```bash
-ng test
+# Développement
+npm start                    # Serveur de développement
+npm run build               # Build de production
+npm run watch               # Build en mode watch
+
+# Tests
+npm test                    # Lancer les tests
+npm run test -- --watch=false --browsers=ChromeHeadless
+
+# Qualité du code
+npm run lint                # Linter ESLint
+npm run lint:fix            # Corriger automatiquement les erreurs ESLint
+npm run format              # Formater avec Prettier
+npm run format:check        # Vérifier le formatage
 ```
 
-## Running end-to-end tests
+## 🏗️ Architecture DDD
 
-For end-to-end (e2e) testing, run:
+```
+src/app/
+├── core/                   # Logique métier
+│   ├── data/              # Données mock
+│   ├── guards/            # Guards de protection
+│   ├── interceptors/      # Intercepteurs HTTP
+│   └── services/          # Services métier
+├── features/              # Fonctionnalités
+│   ├── auth/             # Authentification
+│   ├── dashboard/         # Tableau de bord
+│   ├── admin/             # Panel administrateur
+│   ├── home/              # Page d'accueil
+│   └── portfolio/         # Portfolio public
+└── shared/                # Composants partagés
+    ├── pipes/             # Pipes personnalisés
+    └── directives/        # Directives personnalisées
+```
+
+## 🔐 Comptes de démonstration
+
+- **Utilisateur** : `jdoe` / `Password123!`
+- **Admin** : `admin` / `AdminStrong!2024`
+
+## 🧪 Tests
 
 ```bash
-ng e2e
+# Tests unitaires
+npm test
+
+# Tests avec couverture
+npm run test -- --code-coverage
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+## 📦 Build et déploiement
 
-## Additional Resources
+```bash
+# Build de production
+npm run build
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+# Les fichiers sont générés dans dist/
+```
+
+## 🎨 Design
+
+- **Thème** : Sombre avec accents violets (#A020F0)
+- **Responsive** : Mobile-first design
+- **Composants** : Standalone Angular 17
+- **Styling** : Tailwind CSS avec configuration personnalisée
+
+## 🔧 Configuration
+
+- **ESLint** : Configuration Angular avec règles strictes
+- **Prettier** : Formatage automatique du code
+- **Husky** : Pre-commit hooks pour la qualité
+- **Lint-staged** : Linting des fichiers modifiés uniquement
+
+## 📄 Licence
+
+MIT License - Voir le fichier LICENSE pour plus de détails.
