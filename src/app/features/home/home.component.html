@@ -1,0 +1,97 @@
+<div class="min-h-screen bg-background text-primary-text">
+  <!-- Hero Section -->
+  <div class="container mx-auto px-4 py-16">
+    <div class="text-center max-w-4xl mx-auto">
+      <!-- Logo/Title -->
+      <h1 class="text-6xl font-bold text-primary-text mb-6">
+        <span class="text-accent">Tap</span>folio
+      </h1>
+      
+      <!-- Subtitle -->
+      <p class="text-xl text-gray-400 mb-8">
+        Créez votre carte de visite numérique professionnelle en quelques clics
+      </p>
+      
+      <!-- Description -->
+      <p class="text-lg text-gray-300 mb-12 leading-relaxed">
+        Tapfolio vous permet de créer un portfolio professionnel moderne et responsive. 
+        Partagez facilement votre profil avec un simple lien et mettez en valeur vos compétences.
+      </p>
+      
+      <!-- CTA Buttons -->
+      <div class="flex flex-col sm:flex-row gap-4 justify-center mb-16">
+        <a routerLink="/auth/register" 
+           class="bg-accent text-white px-8 py-4 rounded-lg font-semibold hover:bg-purple-600 transition-colors text-center">
+          Créer mon portfolio
+        </a>
+        <a routerLink="/auth/login" 
+           class="border-2 border-accent text-accent px-8 py-4 rounded-lg font-semibold hover:bg-accent hover:text-white transition-colors text-center">
+          Se connecter
+        </a>
+      </div>
+      
+      <!-- Demo Links -->
+      <div class="bg-gray-900 rounded-lg p-6 mb-12">
+        <h3 class="text-lg font-semibold text-primary-text mb-4">Voir des exemples</h3>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a routerLink="/p/jdoe" 
+             class="text-accent hover:text-purple-400 transition-colors">
+            👤 Portfolio de John Doe
+          </a>
+          <a routerLink="/p/admin" 
+             class="text-accent hover:text-purple-400 transition-colors">
+            👨‍💼 Portfolio Admin
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Features Section -->
+  <div class="bg-gray-900 py-16">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-primary-text mb-4">Pourquoi choisir Tapfolio ?</h2>
+        <p class="text-gray-400">Des fonctionnalités modernes pour un portfolio professionnel</p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Feature 1 -->
+        <div class="text-center">
+          <div class="bg-accent rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+            <span class="text-2xl">⚡</span>
+          </div>
+          <h3 class="text-xl font-semibold text-primary-text mb-2">Rapide & Moderne</h3>
+          <p class="text-gray-400">Interface intuitive et design responsive pour tous les appareils</p>
+        </div>
+        
+        <!-- Feature 2 -->
+        <div class="text-center">
+          <div class="bg-accent rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+            <span class="text-2xl">🔗</span>
+          </div>
+          <h3 class="text-xl font-semibold text-primary-text mb-2">Partage Facile</h3>
+          <p class="text-gray-400">Un simple lien pour partager votre portfolio partout</p>
+        </div>
+        
+        <!-- Feature 3 -->
+        <div class="text-center">
+          <div class="bg-accent rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+            <span class="text-2xl">🎨</span>
+          </div>
+          <h3 class="text-xl font-semibold text-primary-text mb-2">Personnalisable</h3>
+          <p class="text-gray-400">Adaptez votre profil à votre style et vos besoins</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="bg-background border-t border-gray-800 py-8">
+    <div class="container mx-auto px-4 text-center">
+      <p class="text-gray-400">
+        © 2024 Tapfolio. Créé avec ❤️ en Angular 17
+      </p>
+    </div>
+  </div>
+</div>
