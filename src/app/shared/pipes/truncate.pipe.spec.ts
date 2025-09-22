@@ -29,8 +29,8 @@ describe('TruncatePipe', () => {
   });
 
   it('should handle null/undefined', () => {
-    const result1 = pipe.transform(null as any);
-    const result2 = pipe.transform(undefined as any);
+    const result1 = pipe.transform(null as unknown as string);
+    const result2 = pipe.transform(undefined as unknown as string);
     expect(result1).toBe('');
     expect(result2).toBe('');
   });

@@ -9,7 +9,6 @@ describe('LoginComponent', () => {
   let component: LoginComponent;
   let fixture: ComponentFixture<LoginComponent>;
   let mockAuthService: jasmine.SpyObj<AuthService>;
-  let mockRouter: jasmine.SpyObj<Router>;
 
   beforeEach(async () => {
     const authServiceSpy = jasmine.createSpyObj('AuthService', ['login']);
@@ -19,14 +18,13 @@ describe('LoginComponent', () => {
       imports: [LoginComponent, ReactiveFormsModule],
       providers: [
         { provide: AuthService, useValue: authServiceSpy },
-        { provide: Router, useValue: routerSpy }
-      ]
+        { provide: Router, useValue: routerSpy },
+      ],
     }).compileComponents();
 
     fixture = TestBed.createComponent(LoginComponent);
     component = fixture.componentInstance;
     mockAuthService = TestBed.inject(AuthService) as jasmine.SpyObj<AuthService>;
-    mockRouter = TestBed.inject(Router) as jasmine.SpyObj<Router>;
   });
 
   it('should create', () => {
@@ -41,21 +39,30 @@ describe('LoginComponent', () => {
   it('should validate required fields', () => {
     component.loginForm.patchValue({
       identifier: '',
-      password: ''
+      password: '',
     });
-    
+
     expect(component.loginForm.valid).toBeFalsy();
     expect(component.loginForm.get('identifier')?.hasError('required')).toBeTruthy();
     expect(component.loginForm.get('password')?.hasError('required')).toBeTruthy();
   });
 
   it('should call authService.login on valid form submission', () => {
-    const mockUser = { id: '1', username: 'test', email: 'test@test.com', password: 'password', fullName: 'Test User', bio: 'Test bio', role: 'USER' as const, experiences: [] };
+    const mockUser = {
+      id: '1',
+      username: 'test',
+      email: 'test@test.com',
+      password: 'password',
+      fullName: 'Test User',
+      bio: 'Test bio',
+      role: 'USER' as const,
+      experiences: [],
+    };
     mockAuthService.login.and.returnValue(of(mockUser));
 
     component.loginForm.patchValue({
       identifier: 'test',
-      password: 'password123'
+      password: 'password123',
     });
 
     component.onSubmit();
@@ -66,7 +73,7 @@ describe('LoginComponent', () => {
   it('should not call authService.login on invalid form', () => {
     component.loginForm.patchValue({
       identifier: '',
-      password: ''
+      password: '',
     });
 
     component.onSubmit();
