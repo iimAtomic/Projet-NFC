@@ -55,16 +55,33 @@ export class RegisterComponent {
       this.errorMessage = '';
       this.successMessage = '';
 
-      // In a real app, this would call a registration service
-      // For now, we'll simulate success
-      setTimeout(() => {
-        this.isLoading = false;
-        this.successMessage = 'Compte créé avec succès ! Redirection...';
+      const { username, email, password, fullName, bio } = this.registerForm.value;
 
-        setTimeout(() => {
-          this.router.navigate(['/auth/login']);
-        }, 2000);
-      }, 1000);
+      this.authService
+        .register({
+          username: username!,
+          email: email!,
+          password: password!,
+          fullName: fullName!,
+          bio: bio!,
+        })
+        .subscribe({
+          next: (user) => {
+            this.isLoading = false;
+            if (user) {
+              this.successMessage = 'Compte créé avec succès ! Redirection...';
+              setTimeout(() => {
+                this.router.navigate(['/dashboard']);
+              }, 2000);
+            } else {
+              this.errorMessage = 'Erreur lors de la création du compte';
+            }
+          },
+          error: (error) => {
+            this.isLoading = false;
+            this.errorMessage = error.message || 'Erreur lors de la création du compte';
+          },
+        });
     }
   }
 }

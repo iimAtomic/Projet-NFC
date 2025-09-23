@@ -7,6 +7,13 @@
         <div class="flex items-center space-x-4">
           <span class="text-gray-400">Bonjour, {{ currentUser?.fullName }}</span>
           <button
+            (click)="viewPublicProfile()"
+            class="bg-accent text-white px-4 py-2 rounded-lg hover:bg-purple-600 transition-colors"
+            [disabled]="!currentUser"
+          >
+            Voir mon profil public
+          </button>
+          <button
             (click)="logout()"
             class="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition-colors"
           >

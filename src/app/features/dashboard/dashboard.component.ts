@@ -95,18 +95,37 @@ export class DashboardComponent implements OnInit {
       this.isSaving = true;
       this.saveMessage = '';
 
-      // Simulate save operation
-      setTimeout(() => {
-        this.isSaving = false;
-        this.saveMessage = 'Profil sauvegardé avec succès !';
+      const formData = this.profileForm.value;
 
-        // In a real app, this would update the user data
-        console.log('Form data:', this.profileForm.value);
+      // Préparer les données pour la sauvegarde
+      const updates = {
+        fullName: formData.fullName,
+        bio: formData.bio,
+        photoUrl: formData.photoUrl,
+        social: formData.social,
+        experiences: formData.experiences,
+      };
 
-        setTimeout(() => {
-          this.saveMessage = '';
-        }, 3000);
-      }, 1000);
+      this.authService.updateProfile(updates).subscribe({
+        next: (updatedUser) => {
+          this.isSaving = false;
+          if (updatedUser) {
+            this.saveMessage = 'Profil sauvegardé avec succès !';
+            this.currentUser = updatedUser;
+
+            setTimeout(() => {
+              this.saveMessage = '';
+            }, 3000);
+          } else {
+            this.saveMessage = 'Erreur lors de la sauvegarde';
+          }
+        },
+        error: (error) => {
+          this.isSaving = false;
+          this.saveMessage = 'Erreur lors de la sauvegarde';
+          console.error('Erreur de sauvegarde:', error);
+        },
+      });
     }
   }
 
@@ -114,5 +133,21 @@ export class DashboardComponent implements OnInit {
     this.authService.logout().subscribe(() => {
       this.router.navigate(['/auth/login']);
     });
+  }
+
+  /**
+   * Obtient l'URL du profil public
+   */
+  getPublicProfileUrl(): string {
+    return this.currentUser ? `/p/${this.currentUser.username}` : '';
+  }
+
+  /**
+   * Ouvre le profil public dans un nouvel onglet
+   */
+  viewPublicProfile(): void {
+    if (this.currentUser) {
+      window.open(this.getPublicProfileUrl(), '_blank');
+    }
   }
 }

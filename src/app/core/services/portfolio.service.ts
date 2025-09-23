@@ -1,20 +1,26 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { delay, map } from 'rxjs/operators';
-import { USERS, UserProfile } from '../data/mock-users';
+import { delay } from 'rxjs/operators';
+import { UserProfile } from '../data/mock-users';
+import { UserStorageService } from './user-storage.service';
 
 @Injectable({ providedIn: 'root' })
 export class PortfolioService {
+  private readonly userStorageService = inject(UserStorageService);
+
   getAllUsers(): Observable<UserProfile[]> {
-    return of(USERS).pipe(delay(500));
+    return of(this.userStorageService.getAllUsers()).pipe(delay(500));
   }
 
   getProfileByUsername(username: string): Observable<UserProfile | undefined> {
-    return of(USERS).pipe(
-      delay(500),
-      map((list) => list.find((u) => u.username.toLowerCase() === username.toLowerCase()))
-    );
+    const user = this.userStorageService.findUserByUsername(username);
+    return of(user || undefined).pipe(delay(500));
+  }
+
+  /**
+   * Obtient les statistiques des utilisateurs
+   */
+  getUserStats(): Observable<{ total: number; normal: number; admin: number }> {
+    return of(this.userStorageService.getUserStats()).pipe(delay(200));
   }
 }
-
-

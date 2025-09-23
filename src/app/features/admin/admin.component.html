@@ -37,8 +37,16 @@
 
       <!-- Users Table -->
       <div class="bg-gray-900 rounded-lg overflow-hidden">
-        <div class="px-6 py-4 border-b border-gray-700">
+        <div class="px-6 py-4 border-b border-gray-700 flex justify-between items-center">
           <h2 class="text-xl font-bold text-primary-text">Liste des Utilisateurs</h2>
+          <button
+            (click)="refreshUsers()"
+            class="bg-accent text-white px-4 py-2 rounded-lg hover:bg-purple-600 transition-colors flex items-center space-x-2"
+            [disabled]="isLoading"
+          >
+            <span>🔄</span>
+            <span>Actualiser</span>
+          </button>
         </div>
 
         <!-- Loading State -->
@@ -127,16 +135,29 @@
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
                   <div class="flex space-x-2">
-                    <a
-                      [routerLink]="['/p', user.username]"
+                    <button
+                      (click)="viewUserProfile(user.username)"
                       class="text-accent hover:text-purple-400 transition-colors"
+                      title="Voir le portfolio public"
                     >
-                      Voir profil
-                    </a>
-                    <span class="text-gray-400">|</span>
-                    <button class="text-blue-400 hover:text-blue-300 transition-colors">
-                      Modifier
+                      👁️ Portfolio
                     </button>
+                    <span class="text-gray-400">|</span>
+                    <button
+                      *ngIf="canDeleteUser(user)"
+                      (click)="deleteUser(user.id, user.username)"
+                      class="text-red-400 hover:text-red-300 transition-colors"
+                      title="Supprimer l'utilisateur"
+                    >
+                      🗑️ Supprimer
+                    </button>
+                    <span
+                      *ngIf="!canDeleteUser(user)"
+                      class="text-gray-500 text-xs"
+                      title="Vous ne pouvez pas supprimer votre propre compte"
+                    >
+                      Admin actuel
+                    </span>
                   </div>
                 </td>
               </tr>
