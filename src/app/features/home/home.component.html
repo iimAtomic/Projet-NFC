@@ -51,10 +51,14 @@
   <section class="relative overflow-hidden">
     <!-- Background Pattern -->
     <div
-      class="absolute inset-0 bg-gradient-to-br from-accent/10 via-transparent to-secondary/10"
+      class="absolute inset-0 bg-cover bg-center bg-no-repeat"
+      style="background-image: url('../../assets/hero-bg.png')"
     ></div>
 
-    <div class="container mx-auto px-4 py-16 lg:py-24 relative">
+    <!-- Overlay pour la lisibilité -->
+    <div class="absolute inset-0 bg-black/40"></div>
+
+    <div class="container mx-auto px-4 py-16 lg:py-24 relative z-10">
       <div class="text-center max-w-6xl mx-auto">
         <!-- Main Title -->
         <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold text-primary-text mb-6 leading-tight">
