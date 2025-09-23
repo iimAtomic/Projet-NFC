@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
 import { AuthService } from '../../core/services/auth.service';
@@ -11,22 +11,20 @@ import { InitialsPipe } from '../../shared/pipes/initials.pipe';
   standalone: true,
   imports: [CommonModule, RouterModule, InitialsPipe],
   templateUrl: './admin.component.html',
-  styleUrl: './admin.component.css'
+  styleUrl: './admin.component.css',
 })
 export class AdminComponent implements OnInit {
   users: UserProfile[] = [];
   currentUser: UserProfile | null = null;
   isLoading = false;
 
-  constructor(
-    private authService: AuthService,
-    private portfolioService: PortfolioService,
-    private router: Router
-  ) {}
+  private readonly authService = inject(AuthService);
+  private readonly portfolioService = inject(PortfolioService);
+  private readonly router = inject(Router);
 
   ngOnInit(): void {
     this.currentUser = this.authService.currentUser();
-    
+
     if (!this.currentUser || this.currentUser.role !== 'ADMIN') {
       this.router.navigate(['/dashboard']);
       return;
@@ -45,7 +43,7 @@ export class AdminComponent implements OnInit {
       error: (error) => {
         console.error('Error loading users:', error);
         this.isLoading = false;
-      }
+      },
     });
   }
 
@@ -53,5 +51,17 @@ export class AdminComponent implements OnInit {
     this.authService.logout().subscribe(() => {
       this.router.navigate(['/auth/login']);
     });
+  }
+
+  get totalUsers(): number {
+    return this.users?.length || 0;
+  }
+
+  get normalUsers(): number {
+    return this.users?.filter((u) => u.role === 'USER').length || 0;
+  }
+
+  get adminUsers(): number {
+    return this.users?.filter((u) => u.role === 'ADMIN').length || 0;
   }
 }

@@ -1,14 +1,4 @@
 <div class="min-h-screen bg-background text-primary-text">
-  <!-- Mobile Browser UI Simulation -->
-  <div class="bg-gray-800 text-white text-xs py-1 px-4 flex justify-between items-center">
-    <span>09:43</span>
-    <div class="flex items-center space-x-1">
-      <span>📶</span>
-      <span>📶</span>
-      <span>32</span>
-    </div>
-  </div>
-
   <!-- URL Bar -->
   <div class="bg-gray-700 text-white text-xs py-1 px-4">
     tapfolio.dev/p/{{ (user$ | async)?.username }}
@@ -20,7 +10,7 @@
     <div class="text-center mb-8">
       <!-- Profile Picture -->
       <div class="relative inline-block mb-6">
-        <img 
+        <img
           [src]="user.photoUrl || 'https://via.placeholder.com/120x120'"
           [alt]="user.fullName"
           class="w-32 h-32 rounded-full border-4 border-accent object-cover"
@@ -31,7 +21,7 @@
       <h1 class="text-2xl font-bold text-white mb-2">
         {{ user.fullName }}
       </h1>
-      
+
       <!-- Department/Role -->
       <p class="text-lg text-white mb-4">
         {{ user.bio }}
@@ -40,9 +30,7 @@
 
     <!-- Slogan Section -->
     <div class="text-center mb-8">
-      <h2 class="text-3xl font-bold text-white mb-2">
-        J'organise, je coordonne
-      </h2>
+      <h2 class="text-3xl font-bold text-white mb-2">J'organise, je coordonne</h2>
       <h2 class="text-3xl font-bold mb-4">
         <span class="text-pink-400">et je facilite la</span>
         <span class="text-accent"> gestion !</span>
@@ -52,18 +40,22 @@
     <!-- Description -->
     <div class="text-center mb-8">
       <p class="text-white leading-relaxed">
-        Forte d'une expérience en gestion administrative, organisation d'agenda, 
-        communication et rédaction, je mets mes compétences au service de la direction 
-        pour assurer un fonctionnement fluide et efficace.
+        Forte d'une expérience en gestion administrative, organisation d'agenda, communication et
+        rédaction, je mets mes compétences au service de la direction pour assurer un fonctionnement
+        fluide et efficace.
       </p>
     </div>
 
     <!-- Action Buttons -->
     <div class="flex justify-center space-x-4 mb-12">
-      <button class="bg-accent text-white px-8 py-3 rounded-lg font-bold hover:bg-purple-600 transition-colors">
+      <button
+        class="bg-accent text-white px-8 py-3 rounded-lg font-bold hover:bg-purple-600 transition-colors"
+      >
         Me contacter
       </button>
-      <button class="border-2 border-accent text-white px-8 py-3 rounded-lg font-bold hover:bg-accent hover:text-white transition-colors">
+      <button
+        class="border-2 border-accent text-white px-8 py-3 rounded-lg font-bold hover:bg-accent hover:text-white transition-colors"
+      >
         M'enregistrer
       </button>
     </div>
@@ -71,7 +63,7 @@
     <!-- Experience Section -->
     <div class="mb-8">
       <h3 class="text-4xl font-bold text-accent mb-8 text-center">EXPÉRIENCE</h3>
-      
+
       <div class="space-y-6" *ngIf="user.experiences && user.experiences.length > 0">
         <div *ngFor="let experience of user.experiences" class="bg-gray-900 rounded-lg p-6">
           <div class="flex items-start space-x-3">
@@ -98,20 +90,32 @@
     <!-- Social Links -->
     <div class="text-center" *ngIf="user.social">
       <div class="flex justify-center space-x-6">
-        <a *ngIf="user.social.website" [href]="user.social.website" 
-           class="text-accent hover:text-purple-400 transition-colors">
+        <a
+          *ngIf="user.social.website"
+          [href]="user.social.website"
+          class="text-accent hover:text-purple-400 transition-colors"
+        >
           🌐 Website
         </a>
-        <a *ngIf="user.social.github" [href]="user.social.github" 
-           class="text-accent hover:text-purple-400 transition-colors">
+        <a
+          *ngIf="user.social.github"
+          [href]="user.social.github"
+          class="text-accent hover:text-purple-400 transition-colors"
+        >
           🐙 GitHub
         </a>
-        <a *ngIf="user.social.linkedin" [href]="user.social.linkedin" 
-           class="text-accent hover:text-purple-400 transition-colors">
+        <a
+          *ngIf="user.social.linkedin"
+          [href]="user.social.linkedin"
+          class="text-accent hover:text-purple-400 transition-colors"
+        >
           💼 LinkedIn
         </a>
-        <a *ngIf="user.social.twitter" [href]="user.social.twitter" 
-           class="text-accent hover:text-purple-400 transition-colors">
+        <a
+          *ngIf="user.social.twitter"
+          [href]="user.social.twitter"
+          class="text-accent hover:text-purple-400 transition-colors"
+        >
           🐦 Twitter
         </a>
       </div>
@@ -119,20 +123,10 @@
   </div>
 
   <!-- Loading State -->
-  <div *ngIf="!(user$ | async)" class="min-h-screen bg-background flex items-center justify-center">
+  <div
+    *ngIf="(user$ | async) === null"
+    class="min-h-screen bg-background flex items-center justify-center"
+  >
     <div class="text-white text-xl">Chargement...</div>
-  </div>
-
-  <!-- Mobile Browser Bottom Navigation -->
-  <div class="bg-gray-800 text-white py-2 px-4 flex justify-between items-center">
-    <div class="flex space-x-4">
-      <span>←</span>
-      <span>→</span>
-    </div>
-    <span>+</span>
-    <div class="flex space-x-4">
-      <span>😊</span>
-      <span>⋯</span>
-    </div>
   </div>
 </div>

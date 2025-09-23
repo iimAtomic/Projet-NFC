@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { Observable } from 'rxjs';
@@ -10,15 +10,13 @@ import { PortfolioService } from '../../../core/services/portfolio.service';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './public-profile.component.html',
-  styleUrl: './public-profile.component.css'
+  styleUrl: './public-profile.component.css',
 })
 export class PublicProfileComponent implements OnInit {
   user$: Observable<UserProfile | undefined> | undefined;
 
-  constructor(
-    private route: ActivatedRoute,
-    private portfolioService: PortfolioService
-  ) {}
+  private readonly route = inject(ActivatedRoute);
+  private readonly portfolioService = inject(PortfolioService);
 
   ngOnInit(): void {
     const username = this.route.snapshot.paramMap.get('username');

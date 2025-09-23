@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, FormArray, Validators, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -10,7 +10,7 @@ import { UserProfile, Experience } from '../../core/data/mock-users';
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './dashboard.component.html',
-  styleUrl: './dashboard.component.css'
+  styleUrl: './dashboard.component.css',
 })
 export class DashboardComponent implements OnInit {
   profileForm: FormGroup;
@@ -18,11 +18,11 @@ export class DashboardComponent implements OnInit {
   isSaving = false;
   saveMessage = '';
 
-  constructor(
-    private fb: FormBuilder,
-    private authService: AuthService,
-    private router: Router
-  ) {
+  private readonly fb = inject(FormBuilder);
+  private readonly authService = inject(AuthService);
+  private readonly router = inject(Router);
+
+  constructor() {
     this.profileForm = this.fb.group({
       fullName: ['', [Validators.required, Validators.minLength(2)]],
       bio: ['', [Validators.required, Validators.minLength(10)]],
@@ -31,9 +31,9 @@ export class DashboardComponent implements OnInit {
         website: [''],
         github: [''],
         linkedin: [''],
-        twitter: ['']
+        twitter: [''],
       }),
-      experiences: this.fb.array([])
+      experiences: this.fb.array([]),
     });
   }
 
@@ -60,14 +60,14 @@ export class DashboardComponent implements OnInit {
           website: this.currentUser.social?.website || '',
           github: this.currentUser.social?.github || '',
           linkedin: this.currentUser.social?.linkedin || '',
-          twitter: this.currentUser.social?.twitter || ''
-        }
+          twitter: this.currentUser.social?.twitter || '',
+        },
       });
 
       // Load experiences
       this.experiencesFormArray.clear();
       if (this.currentUser.experiences) {
-        this.currentUser.experiences.forEach(exp => {
+        this.currentUser.experiences.forEach((exp) => {
           this.addExperience(exp);
         });
       }
@@ -80,7 +80,7 @@ export class DashboardComponent implements OnInit {
       role: [experience?.role || '', [Validators.required]],
       startDate: [experience?.startDate || '', [Validators.required]],
       endDate: [experience?.endDate || ''],
-      description: [experience?.description || '', [Validators.required]]
+      description: [experience?.description || '', [Validators.required]],
     });
 
     this.experiencesFormArray.push(experienceForm);
@@ -99,10 +99,10 @@ export class DashboardComponent implements OnInit {
       setTimeout(() => {
         this.isSaving = false;
         this.saveMessage = 'Profil sauvegardé avec succès !';
-        
+
         // In a real app, this would update the user data
         console.log('Form data:', this.profileForm.value);
-        
+
         setTimeout(() => {
           this.saveMessage = '';
         }, 3000);

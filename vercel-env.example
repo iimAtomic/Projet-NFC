@@ -1,0 +1,10 @@
+# Environment variables for Vercel deployment
+NODE_ENV=production
+
+# Angular build configuration
+NG_BUILD_OPTIMIZATION=true
+NG_BUILD_AOT=true
+
+# Optional: Analytics and monitoring
+# VERCEL_ANALYTICS_ID=your_analytics_id
+# SENTRY_DSN=your_sentry_dsn

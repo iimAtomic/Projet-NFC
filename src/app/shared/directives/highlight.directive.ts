@@ -1,14 +1,12 @@
-import { Directive, ElementRef, HostListener, Renderer2 } from '@angular/core';
+import { Directive, ElementRef, HostListener, Renderer2, inject } from '@angular/core';
 
 @Directive({
   selector: '[appHighlight]',
-  standalone: true
+  standalone: true,
 })
 export class HighlightDirective {
-  constructor(
-    private el: ElementRef,
-    private renderer: Renderer2
-  ) {}
+  private readonly el = inject(ElementRef);
+  private readonly renderer = inject(Renderer2);
 
   @HostListener('mouseenter') onMouseEnter() {
     this.renderer.addClass(this.el.nativeElement, 'bg-accent');
