@@ -1,1 +1,79 @@
 /* Component-specific styles */
+
+/* Initial states for GSAP animations - but make them visible by default */
+.hero-title,
+.hero-description,
+.hero-buttons,
+.hero-features {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.phone-mockup {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.feature-card,
+.pricing-card {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.cta-content {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Smooth transitions for hover effects */
+.feature-card,
+.pricing-card {
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.btn-primary,
+.btn-secondary {
+  transition: all 0.3s ease;
+}
+
+/* Performance optimizations */
+* {
+  will-change: auto;
+}
+
+.phone-mockup {
+  will-change: transform;
+}
+
+.feature-card:hover,
+.pricing-card:hover {
+  will-change: transform;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #06b6d4;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #0891b2;
+}
+
+.gradient-bg {
+  background: linear-gradient(to bottom, #0b1020, #0f1130, #120d22);
+}
+
+.rotate-180 {
+  transform: rotate(180deg);
+}

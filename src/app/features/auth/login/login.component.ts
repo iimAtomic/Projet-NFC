@@ -38,7 +38,12 @@ export class LoginComponent {
         next: (user) => {
           this.isLoading = false;
           if (user) {
-            this.router.navigate(['/dashboard']);
+            // Rediriger vers /admin si l'utilisateur est admin, sinon vers /dashboard
+            if (user.role === 'ADMIN') {
+              this.router.navigate(['/admin']);
+            } else {
+              this.router.navigate(['/dashboard']);
+            }
           } else {
             this.errorMessage = 'Identifiants incorrects';
           }

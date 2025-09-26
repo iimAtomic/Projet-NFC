@@ -1,14 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* Base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-  background-color: #000000;
-  color: #ffffff;
   font-family: 'Inter', system-ui, sans-serif;
-  font-weight: 400;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -20,22 +22,16 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #1a1a1a;
+  background: #f1f1f1;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #8a2be2;
+  background: #06b6d4;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #a020f0;
-}
-
-/* Custom focus styles */
-*:focus {
-  outline: 2px solid #8a2be2;
-  outline-offset: 2px;
+  background: #0891b2;
 }
 
 /* Smooth transitions */
@@ -43,49 +39,8 @@ body {
   transition: all 0.2s ease-in-out;
 }
 
-/* Custom button styles */
-.btn-primary {
-  @apply bg-accent text-white px-6 py-3 rounded-lg font-semibold hover:bg-accent-light transition-all transform hover:scale-105 shadow-accent;
-}
-
-.btn-secondary {
-  @apply border-2 border-accent text-accent px-6 py-3 rounded-lg font-semibold hover:bg-accent hover:text-white transition-all transform hover:scale-105;
-}
-
-/* Custom card styles */
-.card {
-  @apply bg-gray-900/50 backdrop-blur-sm rounded-2xl p-6 border border-gray-700 hover:border-accent/50 transition-all;
-}
-
-/* Custom text styles */
-.text-gradient {
-  background: linear-gradient(135deg, #8a2be2, #a020f0);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-/* Custom animations */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.animate-fade-in-up {
-  animation: fadeInUp 0.6s ease-out;
-}
-
-/* Custom glow effects */
-.glow-accent {
-  box-shadow: 0 0 20px rgba(138, 43, 226, 0.3);
-}
-
-.glow-accent-lg {
-  box-shadow: 0 0 40px rgba(138, 43, 226, 0.4);
+/* Focus styles */
+*:focus {
+  outline: 2px solid #06b6d4;
+  outline-offset: 2px;
 }

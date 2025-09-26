@@ -39,17 +39,17 @@ export class AuthService {
     fullName: string;
     bio: string;
   }): Observable<UserProfile | null> {
+    // Vérifier si le username existe déjà
+    if (this.userStorageService.isUsernameTaken(userData.username)) {
+      return of(null).pipe(delay(800));
+    }
+
+    // Vérifier si l'email existe déjà
+    if (this.userStorageService.isEmailTaken(userData.email)) {
+      return of(null).pipe(delay(800));
+    }
+
     try {
-      // Vérifier si le username existe déjà
-      if (this.userStorageService.isUsernameTaken(userData.username)) {
-        throw new Error("Ce nom d'utilisateur est déjà pris");
-      }
-
-      // Vérifier si l'email existe déjà
-      if (this.userStorageService.isEmailTaken(userData.email)) {
-        throw new Error('Cet email est déjà utilisé');
-      }
-
       // Créer le nouvel utilisateur
       const newUser = this.userStorageService.createUser({
         username: userData.username,
@@ -73,6 +73,7 @@ export class AuthService {
 
       return of(newUser).pipe(delay(800));
     } catch (error) {
+      console.error('Erreur lors de la création du compte:', error);
       return of(null).pipe(delay(800));
     }
   }

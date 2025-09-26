@@ -70,6 +70,52 @@ describe('LoginComponent', () => {
     expect(mockAuthService.login).toHaveBeenCalledWith('test', 'password123');
   });
 
+  it('should redirect to dashboard for regular users', () => {
+    const mockUser = {
+      id: '1',
+      username: 'test',
+      email: 'test@test.com',
+      password: 'password',
+      fullName: 'Test User',
+      bio: 'Test bio',
+      role: 'USER' as const,
+      experiences: [],
+    };
+    mockAuthService.login.and.returnValue(of(mockUser));
+
+    component.loginForm.patchValue({
+      identifier: 'test',
+      password: 'password123',
+    });
+
+    component.onSubmit();
+
+    expect(mockAuthService.login).toHaveBeenCalledWith('test', 'password123');
+  });
+
+  it('should redirect to admin for admin users', () => {
+    const mockAdmin = {
+      id: '1',
+      username: 'admin',
+      email: 'admin@test.com',
+      password: 'password',
+      fullName: 'Admin User',
+      bio: 'Admin bio',
+      role: 'ADMIN' as const,
+      experiences: [],
+    };
+    mockAuthService.login.and.returnValue(of(mockAdmin));
+
+    component.loginForm.patchValue({
+      identifier: 'admin',
+      password: 'password123',
+    });
+
+    component.onSubmit();
+
+    expect(mockAuthService.login).toHaveBeenCalledWith('admin', 'password123');
+  });
+
   it('should not call authService.login on invalid form', () => {
     component.loginForm.patchValue({
       identifier: '',

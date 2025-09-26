@@ -1,363 +1,512 @@
-<div class="min-h-screen bg-background text-primary-text">
-  <!-- Navigation Header -->
-  <nav class="bg-gray-900 border-b border-gray-700 sticky top-0 z-50">
-    <div class="container mx-auto px-4 py-4">
-      <div class="flex justify-between items-center">
-        <!-- Logo -->
-        <a routerLink="/" class="flex items-center space-x-2 group">
-          <div class="bg-accent rounded-lg p-2 group-hover:bg-purple-600 transition-colors">
-            <span class="text-white font-bold text-xl">T</span>
-          </div>
-          <span
-            class="text-2xl font-bold text-primary-text group-hover:text-accent transition-colors"
-          >
-            <span class="text-accent">Tap</span>folio
-          </span>
-        </a>
+<!-- Navbar (à placer dans un composant séparé si possible) -->
+<header
+  class="fixed top-0 left-0 w-full z-50 bg-gradient-to-b from-black/60 to-transparent backdrop-blur-md"
+>
+  <div class="max-w-7xl mx-auto flex items-center justify-between px-6 md:px-12 py-4">
+    <!-- Logo -->
+    <div class="flex items-center gap-3">
+      <img src="/logo.png" alt="X-CARD Mockup" class="w-40 h-auto object-contain drop-shadow-lg" />
+    </div>
+    <!-- Liens -->
+    <nav class="hidden md:flex gap-8 items-center text-sm text-gray-200">
+      <a routerLink="/a-propos" class="hover:text-white transition-colors cursor-pointer"
+        >À propos</a
+      >
+      <a routerLink="/nos-offres" class="hover:text-white transition-colors cursor-pointer"
+        >Nos offres</a
+      >
+    </nav>
+    <!-- Boutons -->
+    <div class="flex gap-3">
+      <button
+        routerLink="/auth/login"
+        class="px-5 py-2 rounded-full border border-white/30 text-sm text-white hover:bg-white/10 transition"
+      >
+        LOGIN
+      </button>
+      <button
+        routerLink="/auth/register"
+        class="px-5 py-2 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 text-black text-sm font-semibold shadow-md hover:shadow-lg transition"
+      >
+        REGISTER
+      </button>
+    </div>
+  </div>
+</header>
 
-        <!-- Navigation Links -->
-        <div class="hidden md:flex items-center space-x-6">
-          <a routerLink="/" class="text-gray-300 hover:text-accent transition-colors">Accueil</a>
-          <a routerLink="/p/jdoe" class="text-gray-300 hover:text-accent transition-colors"
-            >Exemples</a
-          >
-          <a routerLink="/auth/login" class="text-gray-300 hover:text-accent transition-colors"
-            >Connexion</a
-          >
-          <a
-            routerLink="/auth/register"
-            class="bg-accent text-white px-4 py-2 rounded-lg hover:bg-purple-600 transition-colors"
-          >
-            Créer un compte
-          </a>
-        </div>
-
-        <!-- Mobile Menu Button -->
-        <button class="md:hidden text-gray-300 hover:text-accent transition-colors">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M4 6h16M4 12h16M4 18h16"
-            ></path>
-          </svg>
+<!-- Hero Section -->
+<section
+  class="relative min-h-screen gradient-bg text-white font-sans flex items-center justify-center pt-24 pb-12"
+>
+  <div
+    class="flex flex-col md:flex-row items-center justify-center gap-8 px-6 md:px-12 w-full max-w-7xl mx-auto"
+  >
+    <!-- Texte -->
+    <div class="flex flex-col items-center md:items-start md:flex-1 text-center md:text-left">
+      <h1 class="text-5xl md:text-5xl lg:text-4xl font-extrabold leading-tight mb-6">
+        UN <span class="text-purple-500">Portfolio</span> gratuit<br />
+        ET une <span class="text-pink-500">Carte NFC</span> pro
+      </h1>
+      <p class="text-gray-100 text-lg md:text-xl mb-8 max-w-lg">
+        Créez un portfolio en ligne avec un lien personnalisé à partager, et optez pour une carte
+        NFC physique pour vos rendez-vous professionnels.
+      </p>
+      <div class="flex gap-4 justify-center md:justify-start flex-wrap">
+        <button
+          routerLink="/register"
+          class="px-6 py-3 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 text-black font-semibold shadow-md hover:shadow-lg transition"
+        >
+          Commencer gratuitement
+        </button>
+        <button
+          routerLink="/nos-offres"
+          class="px-6 py-3 rounded-full border border-white/30 text-white hover:bg-white/10 transition"
+        >
+          Découvrir les offres
         </button>
       </div>
     </div>
-  </nav>
+    <!-- Image -->
+    <div class="md:flex-1 flex justify-center">
+      <img
+        src="/Group9.png"
+        alt="X-CARD Portfolio et Carte NFC"
+        class="w-[350px] h-[350px] md:w-[400px] md:h-[400px] lg:w-[450px] lg:h-[450px] object-contain drop-shadow-lg"
+      />
+    </div>
+  </div>
+</section>
 
-  <!-- Hero Section -->
-  <section class="relative overflow-hidden">
-    <!-- Background Pattern -->
-    <div
-      class="absolute inset-0 bg-cover bg-center bg-no-repeat"
-      style="background-image: url('../../assets/hero-bg.png')"
-    ></div>
-
-    <!-- Overlay pour la lisibilité -->
-    <div class="absolute inset-0 bg-black/40"></div>
-
-    <div class="container mx-auto px-4 py-16 lg:py-24 relative z-10">
-      <div class="text-center max-w-6xl mx-auto">
-        <!-- Main Title -->
-        <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold text-primary-text mb-6 leading-tight">
-          <span class="text-accent">Tap</span>folio
-        </h1>
-
-        <!-- Subtitle -->
-        <p class="text-xl md:text-2xl text-gray-400 mb-8 max-w-3xl mx-auto">
-          L'avenir des cartes de visite est numérique
-        </p>
-
-        <!-- Description -->
-        <p class="text-lg md:text-xl text-gray-300 mb-12 leading-relaxed max-w-4xl mx-auto">
-          Créez votre portfolio professionnel en quelques minutes. Partagez votre profil avec un
-          simple lien, mettez en valeur vos compétences et connectez-vous avec le monde
-          professionnel.
-        </p>
-
-        <!-- CTA Buttons -->
-        <div class="flex flex-col sm:flex-row gap-4 justify-center mb-16">
-          <a
-            routerLink="/auth/register"
-            class="bg-accent text-white px-8 py-4 rounded-lg font-semibold hover:bg-purple-600 transition-all transform hover:scale-105 text-center shadow-lg"
-          >
-            🚀 Créer mon portfolio gratuit
-          </a>
-          <a
-            routerLink="/auth/login"
-            class="border-2 border-accent text-accent px-8 py-4 rounded-lg font-semibold hover:bg-accent hover:text-white transition-all transform hover:scale-105 text-center"
-          >
-            Se connecter
-          </a>
-        </div>
-
-        <!-- Demo Links -->
-        <div class="bg-gray-900/50 backdrop-blur-sm rounded-xl p-6 mb-12 border border-gray-700">
-          <h3 class="text-lg font-semibold text-primary-text mb-4">✨ Voir des exemples</h3>
-          <div class="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              routerLink="/p/jdoe"
-              class="text-accent hover:text-purple-400 transition-colors flex items-center justify-center space-x-2"
-            >
-              <span>👤</span>
-              <span>Portfolio de John Doe</span>
-            </a>
-            <span class="hidden sm:block text-gray-500">|</span>
-            <a
-              routerLink="/p/admin"
-              class="text-accent hover:text-purple-400 transition-colors flex items-center justify-center space-x-2"
-            >
-              <span>👨‍💼</span>
-              <span>Portfolio Admin</span>
-            </a>
-          </div>
-        </div>
+<!-- Section "Qui sommes-nous ?" -->
+<section class="py-20 px-6 md:px-12 gradient-bg text-white">
+  <div class="max-w-7xl mx-auto">
+    <div class="flex items-center gap-4 mb-12">
+      <h2 class="text-4xl md:text-5xl font-bold">Qui sommes-nous ?</h2>
+      <div class="flex items-center gap-2">
+        <div class="w-2 h-2 rounded-full bg-purple-500"></div>
+        <div class="w-20 h-px bg-gray-500"></div>
       </div>
     </div>
-  </section>
+    <div class="flex flex-col md:flex-row items-center gap-12">
+      <div class="flex-1 max-w-lg">
+        <p class="text-gray-300 text-lg md:text-2xl mb-6">
+          The One vous permet de créer un <strong>portfolio en ligne gratuit</strong> avec un lien
+          personnalisé à partager, et d'ajouter une <strong>carte NFC physique</strong> pour vos
+          rendez-vous professionnels. Idéal pour les freelances, entrepreneurs et créatifs !
+        </p>
+      </div>
+      <div class="flex-1 flex justify-center">
+        <img
+          src="/Group10.png"
+          alt="X-CARD Mockup"
+          class="w-80 h-auto object-contain drop-shadow-lg"
+        />
+      </div>
+    </div>
+  </div>
+</section>
 
-  <!-- Story Section -->
-  <section class="py-16 lg:py-24 bg-gradient-to-b from-gray-900 to-background">
-    <div class="container mx-auto px-4">
-      <div class="max-w-4xl mx-auto text-center">
-        <h2 class="text-3xl md:text-4xl font-bold text-primary-text mb-8">
-          L'histoire de <span class="text-accent">Tapfolio</span>
-        </h2>
+<!-- Section "Nos Services" -->
+<section class="py-20 px-6 md:px-12 gradient-bg text-white">
+  <div class="max-w-7xl mx-auto">
+    <div class="flex items-center gap-4 mb-16">
+      <h2 class="text-4xl md:text-5xl font-bold">Nos Services</h2>
+      <div class="flex items-center gap-2">
+        <div class="w-2 h-2 rounded-full bg-purple-500"></div>
+        <div class="w-20 h-px bg-gray-500"></div>
+      </div>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <!-- Service 1: Portfolio -->
+      <div
+        class="bg-gray-900/50 rounded-xl p-6 border border-gray-700 hover:border-purple-500 transition-all"
+      >
+        <div
+          class="w-16 h-16 mb-6 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center"
+        >
+          <img
+            src="/icon1.svg"
+            alt="X-CARD Mockup"
+            class="w-80 h-auto object-contain drop-shadow-lg"
+          />
+        </div>
+        <h3 class="text-xl font-semibold mb-3">Portfolio en ligne</h3>
+        <p class="text-gray-300 mb-4">
+          Créez un portfolio gratuit avec un lien personnalisé (ex: xcard.me/votrenom). Gérez vos
+          projets, vos compétences et vos contacts en un seul endroit.
+        </p>
+        <ul class="text-gray-300 list-disc pl-5 space-y-2">
+          <li>Lien personnalisé</li>
+          <li>Panel d'administration</li>
+          <li>Partage facile</li>
+        </ul>
+      </div>
+      <!-- Service 2: Cartes NFC -->
+      <div
+        class="bg-gray-900/50 rounded-xl p-6 border border-gray-700 hover:border-purple-500 transition-all"
+      >
+        <div
+          class="w-16 h-16 mb-6 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center"
+        >
+          <img
+            src="/icon3.svg"
+            alt="X-CARD Mockup"
+            class="w-80 h-auto object-contain drop-shadow-lg"
+          />
+        </div>
+        <h3 class="text-xl font-semibold mb-3">Cartes NFC Premium</h3>
+        <p class="text-gray-300 mb-4">
+          Ajoutez une carte NFC physique à votre portfolio. Un simple toucher de téléphone pour
+          partager vos informations.
+        </p>
+        <ul class="text-gray-300 list-disc pl-5 space-y-2">
+          <li>Carte PVC noire classique (Standard)</li>
+          <li>Logo et couleurs personnalisés (Pro)</li>
+          <li>Lien vers votre portfolio intégré</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
 
-        <div class="prose prose-lg prose-invert max-w-none">
-          <p class="text-lg md:text-xl text-gray-300 leading-relaxed mb-8">
-            En 2024, nous avons constaté un problème : les cartes de visite traditionnelles se
-            perdent, se déchirent, et ne reflètent plus notre époque numérique. C'est ainsi qu'est
-            né
-            <strong class="text-accent">Tapfolio</strong>.
-          </p>
+<!-- Section "Nos Offres" -->
+<section class="py-20 px-6 md:px-12 gradient-bg text-white">
+  <div class="max-w-7xl mx-auto">
+    <div class="flex items-center gap-4 mb-16">
+      <h2 class="text-4xl md:text-5xl font-bold">Nos Offres</h2>
+      <div class="flex items-center gap-2">
+        <div class="w-2 h-2 rounded-full bg-purple-500"></div>
+        <div class="w-20 h-px bg-gray-500"></div>
+      </div>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- Offre Free -->
+      <div class="bg-gray-900/50 rounded-xl p-6 border border-gray-700 relative">
+        <div
+          class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-purple-500 text-white px-4 py-1 rounded-full text-sm"
+        >
+          FREE
+        </div>
+        <div class="text-center my-6">
+          <p class="text-4xl font-bold">$0</p>
+        </div>
+        <ul class="space-y-3 mb-8">
+          <li class="flex items-center gap-2">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5 text-green-500"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                clip-rule="evenodd"
+              />
+            </svg>
+            Portfolio en ligne
+          </li>
+          <li class="flex items-center gap-2">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5 text-green-500"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                clip-rule="evenodd"
+              />
+            </svg>
+            Lien personnalisé
+          </li>
+          <li class="flex items-center gap-2">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5 text-green-500"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                clip-rule="evenodd"
+              />
+            </svg>
+            Panel d'administration
+          </li>
+        </ul>
+        <button
+          routerLink="/register"
+          class="w-full py-3 bg-gradient-to-r from-purple-500 to-pink-500 text-black font-semibold rounded-full hover:shadow-lg transition"
+        >
+          COMMENCER GRATUITEMENT
+        </button>
+      </div>
 
-          <p class="text-lg md:text-xl text-gray-300 leading-relaxed mb-8">
-            Notre mission est simple : démocratiser la création de portfolios professionnels. Que
-            vous soyez développeur, designer, consultant ou entrepreneur,
-            <strong class="text-accent">Tapfolio</strong> vous donne les outils pour créer un profil
-            qui vous ressemble.
-          </p>
+      <!-- Offre Standard -->
+      <div
+        class="bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-xl p-6 border border-purple-500 relative"
+      >
+        <div
+          class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-purple-500 text-white px-4 py-1 rounded-full text-sm"
+        >
+          STANDARD
+        </div>
+        <div class="text-center my-6">
+          <p class="text-4xl font-bold">€25</p>
+        </div>
+        <ul class="space-y-3 mb-8">
+          <li class="flex items-center gap-2">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5 text-green-500"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                clip-rule="evenodd"
+              />
+            </svg>
+            Tout ce qui est dans l'offre Free
+          </li>
+          <li class="flex items-center gap-2">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5 text-green-500"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                clip-rule="evenodd"
+              />
+            </svg>
+            Carte NFC en PVC noir
+          </li>
+          <li class="flex items-center gap-2">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5 text-green-500"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                clip-rule="evenodd"
+              />
+            </svg>
+            Lien NFC vers votre portfolio
+          </li>
+        </ul>
+        <button
+          routerLink="/register"
+          class="w-full py-3 bg-gradient-to-r from-purple-500 to-pink-500 text-black font-semibold rounded-full hover:shadow-lg transition"
+        >
+          CHOISIR STANDARD
+        </button>
+      </div>
 
-          <div class="bg-accent/10 rounded-xl p-8 border border-accent/20">
-            <h3 class="text-2xl font-bold text-accent mb-4">Notre Vision</h3>
-            <p class="text-lg text-gray-300">
-              "Révolutionner la façon dont les professionnels se présentent au monde, un portfolio à
-              la fois."
+      <!-- Offre Pro -->
+      <div class="bg-gray-900/50 rounded-xl p-6 border border-gray-700 relative">
+        <div
+          class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-purple-500 text-white px-4 py-1 rounded-full text-sm"
+        >
+          PRO
+        </div>
+        <div class="text-center my-6">
+          <p class="text-4xl font-bold">€45</p>
+        </div>
+        <ul class="space-y-3 mb-8">
+          <li class="flex items-center gap-2">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5 text-green-500"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                clip-rule="evenodd"
+              />
+            </svg>
+            Tout ce qui est dans l'offre Standard
+          </li>
+          <li class="flex items-center gap-2">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5 text-green-500"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                clip-rule="evenodd"
+              />
+            </svg>
+            Carte PVC avec logo personnalisé
+          </li>
+          <li class="flex items-center gap-2">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5 text-green-500"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                clip-rule="evenodd"
+              />
+            </svg>
+            Couleur de carte personnalisée
+          </li>
+        </ul>
+        <button
+          routerLink="/register"
+          class="w-full py-3 bg-gradient-to-r from-purple-500 to-pink-500 text-black font-semibold rounded-full hover:shadow-lg transition"
+        >
+          CHOISIR PRO
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Section FAQ -->
+<section class="py-20 px-6 md:px-12 gradient-bg text-white">
+  <div class="max-w-7xl mx-auto">
+    <div class="flex items-center gap-4 mb-12">
+      <h2 class="text-4xl md:text-5xl font-bold">Frequently<br />asked questions</h2>
+      <div class="flex items-center gap-2">
+        <div class="w-2 h-2 rounded-full bg-purple-500"></div>
+        <div class="w-20 h-px bg-gray-500"></div>
+      </div>
+    </div>
+    <div class="flex flex-col md:flex-row gap-12">
+      <div class="flex-1">
+        <!-- Question 1 -->
+        <div class="border-b border-gray-700 py-4">
+          <button
+            (click)="toggleFaq(0)"
+            class="w-full flex justify-between items-center text-left text-lg font-medium focus:outline-none"
+          >
+            <span>Qu'est-ce qu'un portfolio The One?</span>
+            <svg
+              [class.rotate-180]="faqs[0].open"
+              class="w-6 h-6 transform transition-transform"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M19 9l-7 7-7-7"
+              ></path>
+            </svg>
+          </button>
+          @if (faqs[0].open) {
+            <div class="mt-2 text-gray-300">
+              <p>
+                Un portfolio The One est une page web personnalisable qui présente vos projets,
+                compétences et coordonnées. Vous obtenez un lien unique (ex: xcard.me/votrenom) à
+                partager.
+              </p>
+            </div>
+          }
+        </div>
+        <!-- Question 2 -->
+        <div class="border-b border-gray-700 py-4">
+          <button
+            (click)="toggleFaq(1)"
+            class="w-full flex justify-between items-center text-left text-lg font-medium focus:outline-none"
+          >
+            <span>Comment fonctionne la carte NFC ?</span>
+            <svg
+              [class.rotate-180]="faqs[1].open"
+              class="w-6 h-6 transform transition-transform"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M19 9l-7 7-7-7"
+              ></path>
+            </svg>
+          </button>
+          <div *ngIf="faqs[1].open" class="mt-2 text-gray-300">
+            <p>
+              La carte NFC contient une puce qui redirige vers votre portfolio X-CARD. Il suffit
+              d'approcher un smartphone pour accéder à vos informations.
+            </p>
+          </div>
+        </div>
+        <!-- Question 3 -->
+        <div class="border-b border-gray-700 py-4">
+          <button
+            (click)="toggleFaq(2)"
+            class="w-full flex justify-between items-center text-left text-lg font-medium focus:outline-none"
+          >
+            <span>Quelle est la différence entre les offres ?</span>
+            <svg
+              [class.rotate-180]="faqs[2].open"
+              class="w-6 h-6 transform transition-transform"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M19 9l-7 7-7-7"
+              ></path>
+            </svg>
+          </button>
+          <div *ngIf="faqs[2].open" class="mt-2 text-gray-300">
+            <p>
+              L'offre <strong>Free</strong> inclut uniquement le portfolio. Les offres
+              <strong>Standard</strong> et <strong>Pro</strong> ajoutent une carte NFC (avec
+              personnalisation pour la Pro).
             </p>
           </div>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- Features Section -->
-  <section class="py-16 lg:py-24">
-    <div class="container mx-auto px-4">
-      <div class="text-center mb-16">
-        <h2 class="text-3xl md:text-4xl font-bold text-primary-text mb-6">
-          Pourquoi choisir <span class="text-accent">Tapfolio</span> ?
-        </h2>
-        <p class="text-xl text-gray-400 max-w-2xl mx-auto">
-          Des fonctionnalités modernes pensées pour les professionnels d'aujourd'hui
-        </p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
-        <!-- Feature 1 -->
-        <div class="text-center group">
-          <div
-            class="bg-gradient-to-br from-accent to-purple-600 rounded-2xl w-20 h-20 flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform"
-          >
-            <span class="text-3xl">⚡</span>
-          </div>
-          <h3 class="text-2xl font-bold text-primary-text mb-4">Rapide & Moderne</h3>
-          <p class="text-gray-400 leading-relaxed">
-            Interface intuitive et design responsive optimisé pour tous les appareils. Créez votre
-            portfolio en moins de 5 minutes.
-          </p>
-        </div>
-
-        <!-- Feature 2 -->
-        <div class="text-center group">
-          <div
-            class="bg-gradient-to-br from-accent to-purple-600 rounded-2xl w-20 h-20 flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform"
-          >
-            <span class="text-3xl">🔗</span>
-          </div>
-          <h3 class="text-2xl font-bold text-primary-text mb-4">Partage Instantané</h3>
-          <p class="text-gray-400 leading-relaxed">
-            Un simple lien pour partager votre portfolio partout. Compatible avec tous les réseaux
-            sociaux et plateformes.
-          </p>
-        </div>
-
-        <!-- Feature 3 -->
-        <div class="text-center group">
-          <div
-            class="bg-gradient-to-br from-accent to-purple-600 rounded-2xl w-20 h-20 flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform"
-          >
-            <span class="text-3xl">🎨</span>
-          </div>
-          <h3 class="text-2xl font-bold text-primary-text mb-4">Personnalisable</h3>
-          <p class="text-gray-400 leading-relaxed">
-            Adaptez votre profil à votre style et vos besoins. Ajoutez vos expériences, compétences
-            et liens sociaux.
-          </p>
-        </div>
-
-        <!-- Feature 4 -->
-        <div class="text-center group">
-          <div
-            class="bg-gradient-to-br from-accent to-purple-600 rounded-2xl w-20 h-20 flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform"
-          >
-            <span class="text-3xl">📱</span>
-          </div>
-          <h3 class="text-2xl font-bold text-primary-text mb-4">Mobile First</h3>
-          <p class="text-gray-400 leading-relaxed">
-            Optimisé pour mobile dès la conception. Votre portfolio s'adapte parfaitement à tous les
-            écrans.
-          </p>
-        </div>
-
-        <!-- Feature 5 -->
-        <div class="text-center group">
-          <div
-            class="bg-gradient-to-br from-accent to-purple-600 rounded-2xl w-20 h-20 flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform"
-          >
-            <span class="text-3xl">🔒</span>
-          </div>
-          <h3 class="text-2xl font-bold text-primary-text mb-4">Sécurisé</h3>
-          <p class="text-gray-400 leading-relaxed">
-            Vos données sont protégées avec les dernières technologies de sécurité. Contrôle total
-            sur votre profil.
-          </p>
-        </div>
-
-        <!-- Feature 6 -->
-        <div class="text-center group">
-          <div
-            class="bg-gradient-to-br from-accent to-purple-600 rounded-2xl w-20 h-20 flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform"
-          >
-            <span class="text-3xl">🚀</span>
-          </div>
-          <h3 class="text-2xl font-bold text-primary-text mb-4">Performance</h3>
-          <p class="text-gray-400 leading-relaxed">
-            Chargement ultra-rapide grâce aux technologies Angular 17+ et optimisations avancées.
-          </p>
-        </div>
+      <div class="flex-1 flex flex-col gap-4">
+        <a
+          routerLink="/faq"
+          class="py-3 px-6 bg-gradient-to-r from-cyan-400 to-teal-400 text-black font-semibold rounded-full text-center hover:shadow-lg transition"
+        >
+          Voir toutes les FAQ →
+        </a>
+        <a
+          routerLink="/blog"
+          class="py-3 px-6 bg-gradient-to-r from-pink-400 to-purple-400 text-black font-semibold rounded-full text-center hover:shadow-lg transition"
+        >
+          Lire notre blog →
+        </a>
+        <a
+          routerLink="/contact"
+          class="py-3 px-6 bg-gradient-to-r from-purple-500 to-pink-500 text-black font-semibold rounded-full text-center hover:shadow-lg transition"
+        >
+          Nous contacter →
+        </a>
       </div>
     </div>
-  </section>
-
-  <!-- CTA Final Section -->
-  <section class="py-16 lg:py-24 bg-gradient-to-r from-accent/20 to-purple-600/20">
-    <div class="container mx-auto px-4">
-      <div class="text-center max-w-4xl mx-auto">
-        <h2 class="text-3xl md:text-4xl font-bold text-primary-text mb-6">
-          Prêt à créer votre <span class="text-accent">portfolio</span> ?
-        </h2>
-        <p class="text-xl text-gray-300 mb-8">
-          Rejoignez des milliers de professionnels qui ont déjà choisi Tapfolio
-        </p>
-
-        <div class="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-          <a
-            routerLink="/auth/register"
-            class="bg-accent text-white px-8 py-4 rounded-lg font-semibold hover:bg-purple-600 transition-all transform hover:scale-105 text-center shadow-xl"
-          >
-            🚀 Commencer gratuitement
-          </a>
-          <a
-            routerLink="/p/jdoe"
-            class="border-2 border-accent text-accent px-8 py-4 rounded-lg font-semibold hover:bg-accent hover:text-white transition-all transform hover:scale-105 text-center"
-          >
-            👀 Voir un exemple
-          </a>
-        </div>
-
-        <p class="text-sm text-gray-500">
-          ✅ Gratuit • ✅ Sans engagement • ✅ Création en 5 minutes
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="bg-gray-900 border-t border-gray-700 py-12">
-    <div class="container mx-auto px-4">
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-        <!-- Logo & Description -->
-        <div class="md:col-span-2">
-          <a routerLink="/" class="flex items-center space-x-2 mb-4">
-            <div class="bg-accent rounded-lg p-2">
-              <span class="text-white font-bold text-xl">T</span>
-            </div>
-            <span class="text-2xl font-bold text-primary-text">
-              <span class="text-accent">Tap</span>folio
-            </span>
-          </a>
-          <p class="text-gray-400 leading-relaxed max-w-md">
-            L'avenir des cartes de visite est numérique. Créez votre portfolio professionnel en
-            quelques minutes et partagez-le avec le monde.
-          </p>
-        </div>
-
-        <!-- Quick Links -->
-        <div>
-          <h3 class="text-lg font-semibold text-primary-text mb-4">Navigation</h3>
-          <ul class="space-y-2">
-            <li>
-              <a routerLink="/" class="text-gray-400 hover:text-accent transition-colors"
-                >Accueil</a
-              >
-            </li>
-            <li>
-              <a routerLink="/p/jdoe" class="text-gray-400 hover:text-accent transition-colors"
-                >Exemples</a
-              >
-            </li>
-            <li>
-              <a routerLink="/auth/login" class="text-gray-400 hover:text-accent transition-colors"
-                >Connexion</a
-              >
-            </li>
-            <li>
-              <a
-                routerLink="/auth/register"
-                class="text-gray-400 hover:text-accent transition-colors"
-                >Inscription</a
-              >
-            </li>
-          </ul>
-        </div>
-
-        <!-- Features -->
-        <div>
-          <h3 class="text-lg font-semibold text-primary-text mb-4">Fonctionnalités</h3>
-          <ul class="space-y-2">
-            <li class="text-gray-400">⚡ Création rapide</li>
-            <li class="text-gray-400">📱 Mobile first</li>
-            <li class="text-gray-400">🔗 Partage facile</li>
-            <li class="text-gray-400">🎨 Personnalisable</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="border-t border-gray-700 pt-8">
-        <div class="flex flex-col md:flex-row justify-between items-center">
-          <p class="text-gray-400 text-sm">
-            © 2024 Tapfolio. Créé avec ❤️ en Angular 17+ et Tailwind CSS
-          </p>
-          <div class="flex space-x-4 mt-4 md:mt-0">
-            <span class="text-gray-500 text-sm">🚀 Performance</span>
-            <span class="text-gray-500 text-sm">🔒 Sécurisé</span>
-            <span class="text-gray-500 text-sm">📱 Responsive</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </footer>
-</div>
+  </div>
+</section>

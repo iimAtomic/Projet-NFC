@@ -55,7 +55,7 @@ export class RegisterComponent {
       this.errorMessage = '';
       this.successMessage = '';
 
-      const { username, email, password, fullName, bio } = this.registerForm.value;
+      const { username, email, password, fullName } = this.registerForm.value;
 
       this.authService
         .register({
@@ -63,7 +63,7 @@ export class RegisterComponent {
           email: email!,
           password: password!,
           fullName: fullName!,
-          bio: bio!,
+          bio: '', // Bio par défaut vide
         })
         .subscribe({
           next: (user) => {
@@ -74,7 +74,8 @@ export class RegisterComponent {
                 this.router.navigate(['/dashboard']);
               }, 2000);
             } else {
-              this.errorMessage = 'Erreur lors de la création du compte';
+              this.errorMessage =
+                "Erreur lors de la création du compte. Vérifiez que le nom d'utilisateur et l'email ne sont pas déjà utilisés.";
             }
           },
           error: (error) => {

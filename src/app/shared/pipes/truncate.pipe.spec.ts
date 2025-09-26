@@ -14,7 +14,7 @@ describe('TruncatePipe', () => {
   it('should truncate long text', () => {
     const longText = 'This is a very long text that should be truncated';
     const result = pipe.transform(longText, 20);
-    expect(result).toBe('This is a very long t...');
+    expect(result).toBe('This is a very long ...');
   });
 
   it('should not truncate short text', () => {
@@ -38,6 +38,6 @@ describe('TruncatePipe', () => {
   it('should use custom trail', () => {
     const longText = 'This is a very long text';
     const result = pipe.transform(longText, 10, '---');
-    expect(result).toBe('This is a---');
+    expect(result).toBe('This is a ---');
   });
 });
