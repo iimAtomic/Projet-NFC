@@ -1,7 +1,5 @@
 <!-- Navbar (à placer dans un composant séparé si possible) -->
-<header
-  class="fixed top-0 left-0 w-full z-50 bg-gradient-to-b from-black/60 to-transparent backdrop-blur-md"
->
+<header class="fixed top-0 left-0 w-full z-50 bg-gradient-to-b from-black/60 to-transparent backdrop-blur-md">
   <div class="max-w-7xl mx-auto flex items-center justify-between px-6 md:px-12 py-4">
     <!-- Logo -->
     <div class="flex items-center gap-3">
@@ -9,25 +7,17 @@
     </div>
     <!-- Liens -->
     <nav class="hidden md:flex gap-8 items-center text-sm text-gray-200">
-      <a routerLink="/a-propos" class="hover:text-white transition-colors cursor-pointer"
-        >À propos</a
-      >
-      <a routerLink="/nos-offres" class="hover:text-white transition-colors cursor-pointer"
-        >Nos offres</a
-      >
+      <a routerLink="/a-propos" class="hover:text-white transition-colors cursor-pointer">À propos</a>
+      <a routerLink="/nos-offres" class="hover:text-white transition-colors cursor-pointer">Nos offres</a>
     </nav>
     <!-- Boutons -->
     <div class="flex gap-3">
-      <button
-        routerLink="/auth/login"
-        class="px-5 py-2 rounded-full border border-white/30 text-sm text-white hover:bg-white/10 transition"
-      >
+      <button routerLink="/auth/login"
+        class="px-5 py-2 rounded-full border border-white/30 text-sm text-white hover:bg-white/10 transition">
         LOGIN
       </button>
-      <button
-        routerLink="/auth/register"
-        class="px-5 py-2 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 text-black text-sm font-semibold shadow-md hover:shadow-lg transition"
-      >
+      <button routerLink="/auth/register"
+        class="px-5 py-2 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 text-black text-sm font-semibold shadow-md hover:shadow-lg transition">
         REGISTER
       </button>
     </div>
@@ -35,12 +25,8 @@
 </header>
 
 <!-- Hero Section -->
-<section
-  class="relative min-h-screen gradient-bg text-white font-sans flex items-center justify-center pt-24 pb-12"
->
-  <div
-    class="flex flex-col md:flex-row items-center justify-center gap-8 px-6 md:px-12 w-full max-w-7xl mx-auto"
-  >
+<section class="relative min-h-screen gradient-bg text-white font-sans flex items-center justify-center pt-24 pb-12">
+  <div class="flex flex-col md:flex-row items-center justify-center gap-8 px-6 md:px-12 w-full max-w-7xl mx-auto">
     <!-- Texte -->
     <div class="flex flex-col items-center md:items-start md:flex-1 text-center md:text-left">
       <h1 class="text-5xl md:text-5xl lg:text-4xl font-extrabold leading-tight mb-6">
@@ -51,28 +37,26 @@
         Créez un portfolio en ligne avec un lien personnalisé à partager, et optez pour une carte
         NFC physique pour vos rendez-vous professionnels.
       </p>
+      <div class="bg-gradient-to-r from-green-500/20 to-emerald-500/20 border border-green-500/50 rounded-xl p-4 mb-8">
+        <p class="text-green-200 text-sm font-semibold">
+          🎉 <strong>GRATUIT MAINTENANT</strong> - Créez votre compte avant l'arrivée des abonnements !
+        </p>
+      </div>
       <div class="flex gap-4 justify-center md:justify-start flex-wrap">
-        <button
-          routerLink="/register"
-          class="px-6 py-3 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 text-black font-semibold shadow-md hover:shadow-lg transition"
-        >
+        <button routerLink="/register"
+          class="px-6 py-3 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 text-black font-semibold shadow-md hover:shadow-lg transition">
           Commencer gratuitement
         </button>
-        <button
-          routerLink="/nos-offres"
-          class="px-6 py-3 rounded-full border border-white/30 text-white hover:bg-white/10 transition"
-        >
+        <button routerLink="/nos-offres"
+          class="px-6 py-3 rounded-full border border-white/30 text-white hover:bg-white/10 transition">
           Découvrir les offres
         </button>
       </div>
     </div>
     <!-- Image -->
     <div class="md:flex-1 flex justify-center">
-      <img
-        src="/Group9.png"
-        alt="X-CARD Portfolio et Carte NFC"
-        class="w-[350px] h-[350px] md:w-[400px] md:h-[400px] lg:w-[450px] lg:h-[450px] object-contain drop-shadow-lg"
-      />
+      <img src="/Group9.png" alt="X-CARD Portfolio et Carte NFC"
+        class="w-[350px] h-[350px] md:w-[400px] md:h-[400px] lg:w-[450px] lg:h-[450px] object-contain drop-shadow-lg" />
     </div>
   </div>
 </section>
@@ -96,11 +80,7 @@
         </p>
       </div>
       <div class="flex-1 flex justify-center">
-        <img
-          src="/Group10.png"
-          alt="X-CARD Mockup"
-          class="w-80 h-auto object-contain drop-shadow-lg"
-        />
+        <img src="/Group10.png" alt="X-CARD Mockup" class="w-80 h-auto object-contain drop-shadow-lg" />
       </div>
     </div>
   </div>
@@ -118,17 +98,10 @@
     </div>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
       <!-- Service 1: Portfolio -->
-      <div
-        class="bg-gray-900/50 rounded-xl p-6 border border-gray-700 hover:border-purple-500 transition-all"
-      >
+      <div class="bg-gray-900/50 rounded-xl p-6 border border-gray-700 hover:border-purple-500 transition-all">
         <div
-          class="w-16 h-16 mb-6 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center"
-        >
-          <img
-            src="/icon1.svg"
-            alt="X-CARD Mockup"
-            class="w-80 h-auto object-contain drop-shadow-lg"
-          />
+          class="w-16 h-16 mb-6 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center">
+          <img src="/icon1.svg" alt="X-CARD Mockup" class="w-80 h-auto object-contain drop-shadow-lg" />
         </div>
         <h3 class="text-xl font-semibold mb-3">Portfolio en ligne</h3>
         <p class="text-gray-300 mb-4">
@@ -142,17 +115,10 @@
         </ul>
       </div>
       <!-- Service 2: Cartes NFC -->
-      <div
-        class="bg-gray-900/50 rounded-xl p-6 border border-gray-700 hover:border-purple-500 transition-all"
-      >
+      <div class="bg-gray-900/50 rounded-xl p-6 border border-gray-700 hover:border-purple-500 transition-all">
         <div
-          class="w-16 h-16 mb-6 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center"
-        >
-          <img
-            src="/icon3.svg"
-            alt="X-CARD Mockup"
-            class="w-80 h-auto object-contain drop-shadow-lg"
-          />
+          class="w-16 h-16 mb-6 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center">
+          <img src="/icon3.svg" alt="X-CARD Mockup" class="w-80 h-auto object-contain drop-shadow-lg" />
         </div>
         <h3 class="text-xl font-semibold mb-3">Cartes NFC Premium</h3>
         <p class="text-gray-300 mb-4">
@@ -183,8 +149,7 @@
       <!-- Offre Free -->
       <div class="bg-gray-900/50 rounded-xl p-6 border border-gray-700 relative">
         <div
-          class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-purple-500 text-white px-4 py-1 rounded-full text-sm"
-        >
+          class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-purple-500 text-white px-4 py-1 rounded-full text-sm">
           FREE
         </div>
         <div class="text-center my-6">
@@ -192,66 +157,43 @@
         </div>
         <ul class="space-y-3 mb-8">
           <li class="flex items-center gap-2">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-5 w-5 text-green-500"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-            >
-              <path
-                fill-rule="evenodd"
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500" viewBox="0 0 20 20"
+              fill="currentColor">
+              <path fill-rule="evenodd"
                 d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                clip-rule="evenodd"
-              />
+                clip-rule="evenodd" />
             </svg>
             Portfolio en ligne
           </li>
           <li class="flex items-center gap-2">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-5 w-5 text-green-500"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-            >
-              <path
-                fill-rule="evenodd"
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500" viewBox="0 0 20 20"
+              fill="currentColor">
+              <path fill-rule="evenodd"
                 d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                clip-rule="evenodd"
-              />
+                clip-rule="evenodd" />
             </svg>
             Lien personnalisé
           </li>
           <li class="flex items-center gap-2">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-5 w-5 text-green-500"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-            >
-              <path
-                fill-rule="evenodd"
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500" viewBox="0 0 20 20"
+              fill="currentColor">
+              <path fill-rule="evenodd"
                 d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                clip-rule="evenodd"
-              />
+                clip-rule="evenodd" />
             </svg>
             Panel d'administration
           </li>
         </ul>
-        <button
-          routerLink="/register"
-          class="w-full py-3 bg-gradient-to-r from-purple-500 to-pink-500 text-black font-semibold rounded-full hover:shadow-lg transition"
-        >
+        <button routerLink="/register"
+          class="w-full py-3 bg-gradient-to-r from-purple-500 to-pink-500 text-black font-semibold rounded-full hover:shadow-lg transition">
           COMMENCER GRATUITEMENT
         </button>
       </div>
 
       <!-- Offre Standard -->
-      <div
-        class="bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-xl p-6 border border-purple-500 relative"
-      >
+      <div class="bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-xl p-6 border border-purple-500 relative">
         <div
-          class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-purple-500 text-white px-4 py-1 rounded-full text-sm"
-        >
+          class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-purple-500 text-white px-4 py-1 rounded-full text-sm">
           STANDARD
         </div>
         <div class="text-center my-6">
@@ -259,55 +201,35 @@
         </div>
         <ul class="space-y-3 mb-8">
           <li class="flex items-center gap-2">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-5 w-5 text-green-500"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-            >
-              <path
-                fill-rule="evenodd"
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500" viewBox="0 0 20 20"
+              fill="currentColor">
+              <path fill-rule="evenodd"
                 d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                clip-rule="evenodd"
-              />
+                clip-rule="evenodd" />
             </svg>
             Tout ce qui est dans l'offre Free
           </li>
           <li class="flex items-center gap-2">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-5 w-5 text-green-500"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-            >
-              <path
-                fill-rule="evenodd"
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500" viewBox="0 0 20 20"
+              fill="currentColor">
+              <path fill-rule="evenodd"
                 d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                clip-rule="evenodd"
-              />
+                clip-rule="evenodd" />
             </svg>
             Carte NFC en PVC noir
           </li>
           <li class="flex items-center gap-2">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-5 w-5 text-green-500"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-            >
-              <path
-                fill-rule="evenodd"
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500" viewBox="0 0 20 20"
+              fill="currentColor">
+              <path fill-rule="evenodd"
                 d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                clip-rule="evenodd"
-              />
+                clip-rule="evenodd" />
             </svg>
             Lien NFC vers votre portfolio
           </li>
         </ul>
-        <button
-          routerLink="/register"
-          class="w-full py-3 bg-gradient-to-r from-purple-500 to-pink-500 text-black font-semibold rounded-full hover:shadow-lg transition"
-        >
+        <button routerLink="/register"
+          class="w-full py-3 bg-gradient-to-r from-purple-500 to-pink-500 text-black font-semibold rounded-full hover:shadow-lg transition">
           CHOISIR STANDARD
         </button>
       </div>
@@ -315,8 +237,7 @@
       <!-- Offre Pro -->
       <div class="bg-gray-900/50 rounded-xl p-6 border border-gray-700 relative">
         <div
-          class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-purple-500 text-white px-4 py-1 rounded-full text-sm"
-        >
+          class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-purple-500 text-white px-4 py-1 rounded-full text-sm">
           PRO
         </div>
         <div class="text-center my-6">
@@ -324,57 +245,276 @@
         </div>
         <ul class="space-y-3 mb-8">
           <li class="flex items-center gap-2">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-5 w-5 text-green-500"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-            >
-              <path
-                fill-rule="evenodd"
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500" viewBox="0 0 20 20"
+              fill="currentColor">
+              <path fill-rule="evenodd"
                 d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                clip-rule="evenodd"
-              />
+                clip-rule="evenodd" />
             </svg>
             Tout ce qui est dans l'offre Standard
           </li>
           <li class="flex items-center gap-2">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-5 w-5 text-green-500"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-            >
-              <path
-                fill-rule="evenodd"
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500" viewBox="0 0 20 20"
+              fill="currentColor">
+              <path fill-rule="evenodd"
                 d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                clip-rule="evenodd"
-              />
+                clip-rule="evenodd" />
             </svg>
             Carte PVC avec logo personnalisé
           </li>
           <li class="flex items-center gap-2">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-5 w-5 text-green-500"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-            >
-              <path
-                fill-rule="evenodd"
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500" viewBox="0 0 20 20"
+              fill="currentColor">
+              <path fill-rule="evenodd"
                 d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                clip-rule="evenodd"
-              />
+                clip-rule="evenodd" />
             </svg>
             Couleur de carte personnalisée
           </li>
         </ul>
-        <button
-          routerLink="/register"
-          class="w-full py-3 bg-gradient-to-r from-purple-500 to-pink-500 text-black font-semibold rounded-full hover:shadow-lg transition"
-        >
+        <button routerLink="/register"
+          class="w-full py-3 bg-gradient-to-r from-purple-500 to-pink-500 text-black font-semibold rounded-full hover:shadow-lg transition">
           CHOISIR PRO
         </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Section Achat de Cartes NFC -->
+<section class="py-20 px-6 md:px-12 gradient-bg text-white">
+  <div class="max-w-7xl mx-auto">
+    <div class="flex items-center gap-4 mb-16">
+      <h2 class="text-4xl md:text-5xl font-bold">Achetez vos Cartes NFC</h2>
+      <div class="flex items-center gap-2">
+        <div class="w-2 h-2 rounded-full bg-purple-500"></div>
+        <div class="w-20 h-px bg-gray-500"></div>
+      </div>
+    </div>
+
+    <!-- Offre Spéciale -->
+    <div class="bg-gradient-to-r from-yellow-500/20 to-orange-500/20 border border-yellow-500/50 rounded-2xl p-8 mb-12">
+      <div class="text-center">
+        <div
+          class="inline-flex items-center gap-2 bg-yellow-500 text-black px-4 py-2 rounded-full text-sm font-bold mb-4">
+          🔥 OFFRE LIMITÉE
+        </div>
+        <h3 class="text-3xl font-bold mb-4">Les 20 premières personnes bénéficient d'un accès gratuit pendant 1 an !
+        </h3>
+        <p class="text-gray-300 text-lg mb-6">
+          Bientôt, les portfolios et portfolios e-commerce seront sous abonnement.
+          <strong>Les 20 premiers acheteurs de carte NFC</strong> bénéficient d'un accès gratuit
+          pendant 1 an sans limitation, que ce soit en mode portfolio ou e-commerce !
+        </p>
+        <div class="flex items-center justify-center gap-4 text-sm text-gray-400">
+          <span>⏰ Offre valable jusqu'à épuisement des 20 places</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Information Importante -->
+    <div class="bg-gradient-to-r from-blue-500/20 to-cyan-500/20 border border-blue-500/50 rounded-2xl p-8 mb-12">
+      <div class="text-center">
+        <div
+          class="inline-flex items-center gap-2 bg-blue-500 text-white px-4 py-2 rounded-full text-sm font-bold mb-4">
+          ⚡ IMPORTANT
+        </div>
+        <h3 class="text-2xl font-bold mb-4">Créez votre compte MAINTENANT et profitez de l'accès gratuit !</h3>
+        <p class="text-gray-300 text-lg mb-6">
+          <strong>Même sans acheter de carte NFC</strong>, vous pouvez créer votre compte et utiliser
+          la solution gratuitement dès aujourd'hui ! Une fois le système d'abonnement mis en place,
+          certaines sections de votre portfolio seront soumises à abonnement, mais vous aurez déjà
+          votre compte créé et pourrez continuer à l'utiliser.
+        </p>
+        <div class="flex flex-col md:flex-row items-center justify-center gap-4 text-sm text-gray-400 mb-6">
+          <span>✅ Création de compte gratuite</span>
+          <span>✅ Portfolio complet disponible</span>
+          <span>✅ Mode e-commerce inclus</span>
+        </div>
+        <div class="flex flex-col md:flex-row gap-4 justify-center">
+          <button routerLink="/auth/register"
+            class="px-8 py-4 bg-gradient-to-r from-blue-500 to-cyan-500 text-white font-bold rounded-full hover:shadow-lg transition transform hover:scale-105">
+            🚀 Créer mon compte GRATUIT
+          </button>
+          <button routerLink="/auth/login"
+            class="px-8 py-4 border border-blue-500 text-blue-400 rounded-full hover:bg-blue-500/10 transition">
+            J'ai déjà un compte
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cartes NFC disponibles -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+      <!-- Carte Standard -->
+      <div class="bg-gray-900/50 rounded-xl p-6 border border-gray-700 hover:border-purple-500 transition-all">
+        <div class="text-center mb-6">
+          <div
+            class="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16">
+              </path>
+            </svg>
+          </div>
+          <h3 class="text-2xl font-bold mb-2">Carte Standard</h3>
+          <p class="text-3xl font-bold text-purple-500 mb-4">€25</p>
+        </div>
+        <ul class="space-y-3 mb-8">
+          <li class="flex items-center gap-2">
+            <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd"
+                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                clip-rule="evenodd"></path>
+            </svg>
+            Carte PVC noir classique
+          </li>
+          <li class="flex items-center gap-2">
+            <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd"
+                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                clip-rule="evenodd"></path>
+            </svg>
+            Lien NFC vers votre portfolio
+          </li>
+          <li class="flex items-center gap-2">
+            <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd"
+                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                clip-rule="evenodd"></path>
+            </svg>
+            Accès gratuit 1 an (offre limitée)
+          </li>
+        </ul>
+        <button (click)="addToCart('standard')"
+          class="w-full py-3 bg-gradient-to-r from-purple-500 to-pink-500 text-black font-semibold rounded-full hover:shadow-lg transition">
+          Ajouter au panier
+        </button>
+      </div>
+
+      <!-- Carte Pro -->
+      <div
+        class="bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-xl p-6 border border-purple-500 hover:border-purple-400 transition-all">
+        <div class="text-center mb-6">
+          <div
+            class="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z">
+              </path>
+            </svg>
+          </div>
+          <h3 class="text-2xl font-bold mb-2">Carte Pro</h3>
+          <p class="text-3xl font-bold text-purple-500 mb-4">€45</p>
+        </div>
+        <ul class="space-y-3 mb-8">
+          <li class="flex items-center gap-2">
+            <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd"
+                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                clip-rule="evenodd"></path>
+            </svg>
+            Carte PVC avec logo personnalisé
+          </li>
+          <li class="flex items-center gap-2">
+            <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd"
+                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                clip-rule="evenodd"></path>
+            </svg>
+            Couleur personnalisée
+          </li>
+          <li class="flex items-center gap-2">
+            <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd"
+                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                clip-rule="evenodd"></path>
+            </svg>
+            Accès gratuit 1 an (offre limitée)
+          </li>
+        </ul>
+        <button (click)="addToCart('pro')"
+          class="w-full py-3 bg-gradient-to-r from-purple-500 to-pink-500 text-black font-semibold rounded-full hover:shadow-lg transition">
+          Ajouter au panier
+        </button>
+      </div>
+
+      <!-- Pack Multiple -->
+      <div class="bg-gray-900/50 rounded-xl p-6 border border-gray-700 hover:border-green-500 transition-all">
+        <div class="text-center mb-6">
+          <div
+            class="w-16 h-16 bg-gradient-to-r from-green-500 to-teal-500 rounded-lg flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10">
+              </path>
+            </svg>
+          </div>
+          <h3 class="text-2xl font-bold mb-2">Pack 3 Cartes</h3>
+          <p class="text-3xl font-bold text-green-500 mb-4">€60</p>
+          <p class="text-sm text-gray-400 line-through">€75</p>
+        </div>
+        <ul class="space-y-3 mb-8">
+          <li class="flex items-center gap-2">
+            <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd"
+                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                clip-rule="evenodd"></path>
+            </svg>
+            3 cartes Standard
+          </li>
+          <li class="flex items-center gap-2">
+            <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd"
+                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                clip-rule="evenodd"></path>
+            </svg>
+            Économie de €15
+          </li>
+          <li class="flex items-center gap-2">
+            <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd"
+                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                clip-rule="evenodd"></path>
+            </svg>
+            Accès gratuit 1 an (offre limitée)
+          </li>
+        </ul>
+        <button (click)="addToCart('pack')"
+          class="w-full py-3 bg-gradient-to-r from-green-500 to-teal-500 text-white font-semibold rounded-full hover:shadow-lg transition">
+          Ajouter au panier
+        </button>
+      </div>
+    </div>
+
+    <!-- Panier et Commande -->
+    <div class="bg-gray-900/50 rounded-xl p-8 border border-gray-700">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+        <div class="flex items-center gap-4">
+          <div
+            class="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-2.5 5M7 13l2.5 5m6-5v6a2 2 0 01-2 2H9a2 2 0 01-2-2v-6m8 0V9a2 2 0 00-2-2H9a2 2 0 00-2 2v4.01">
+              </path>
+            </svg>
+          </div>
+          <div>
+            <h3 class="text-xl font-semibold">Panier</h3>
+            <p class="text-gray-400" *ngIf="cartItems.length === 0">Votre panier est vide</p>
+            <p class="text-gray-400" *ngIf="cartItems.length > 0">{{ cartItems.length }} article(s) - Total: {{
+              getTotalPrice() }}€</p>
+          </div>
+        </div>
+        <div class="flex gap-4">
+          <button (click)="clearCart()" *ngIf="cartItems.length > 0"
+            class="px-6 py-3 border border-gray-600 text-gray-300 rounded-full hover:bg-gray-800 transition">
+            Vider le panier
+          </button>
+          <button (click)="proceedToCheckout()" [disabled]="cartItems.length === 0"
+            class="px-8 py-3 bg-gradient-to-r from-purple-500 to-pink-500 text-black font-semibold rounded-full hover:shadow-lg transition disabled:opacity-50 disabled:cursor-not-allowed">
+            Commander maintenant
+          </button>
+        </div>
       </div>
     </div>
   </div>
@@ -394,58 +534,32 @@
       <div class="flex-1">
         <!-- Question 1 -->
         <div class="border-b border-gray-700 py-4">
-          <button
-            (click)="toggleFaq(0)"
-            class="w-full flex justify-between items-center text-left text-lg font-medium focus:outline-none"
-          >
+          <button (click)="toggleFaq(0)"
+            class="w-full flex justify-between items-center text-left text-lg font-medium focus:outline-none">
             <span>Qu'est-ce qu'un portfolio The One?</span>
-            <svg
-              [class.rotate-180]="faqs[0].open"
-              class="w-6 h-6 transform transition-transform"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M19 9l-7 7-7-7"
-              ></path>
+            <svg [class.rotate-180]="faqs[0].open" class="w-6 h-6 transform transition-transform" fill="none"
+              stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
             </svg>
           </button>
           @if (faqs[0].open) {
-            <div class="mt-2 text-gray-300">
-              <p>
-                Un portfolio The One est une page web personnalisable qui présente vos projets,
-                compétences et coordonnées. Vous obtenez un lien unique (ex: xcard.me/votrenom) à
-                partager.
-              </p>
-            </div>
+          <div class="mt-2 text-gray-300">
+            <p>
+              Un portfolio The One est une page web personnalisable qui présente vos projets,
+              compétences et coordonnées. Vous obtenez un lien unique (ex: xcard.me/votrenom) à
+              partager.
+            </p>
+          </div>
           }
         </div>
         <!-- Question 2 -->
         <div class="border-b border-gray-700 py-4">
-          <button
-            (click)="toggleFaq(1)"
-            class="w-full flex justify-between items-center text-left text-lg font-medium focus:outline-none"
-          >
+          <button (click)="toggleFaq(1)"
+            class="w-full flex justify-between items-center text-left text-lg font-medium focus:outline-none">
             <span>Comment fonctionne la carte NFC ?</span>
-            <svg
-              [class.rotate-180]="faqs[1].open"
-              class="w-6 h-6 transform transition-transform"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M19 9l-7 7-7-7"
-              ></path>
+            <svg [class.rotate-180]="faqs[1].open" class="w-6 h-6 transform transition-transform" fill="none"
+              stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
             </svg>
           </button>
           <div *ngIf="faqs[1].open" class="mt-2 text-gray-300">
@@ -457,25 +571,12 @@
         </div>
         <!-- Question 3 -->
         <div class="border-b border-gray-700 py-4">
-          <button
-            (click)="toggleFaq(2)"
-            class="w-full flex justify-between items-center text-left text-lg font-medium focus:outline-none"
-          >
+          <button (click)="toggleFaq(2)"
+            class="w-full flex justify-between items-center text-left text-lg font-medium focus:outline-none">
             <span>Quelle est la différence entre les offres ?</span>
-            <svg
-              [class.rotate-180]="faqs[2].open"
-              class="w-6 h-6 transform transition-transform"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M19 9l-7 7-7-7"
-              ></path>
+            <svg [class.rotate-180]="faqs[2].open" class="w-6 h-6 transform transition-transform" fill="none"
+              stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
             </svg>
           </button>
           <div *ngIf="faqs[2].open" class="mt-2 text-gray-300">
@@ -486,24 +587,37 @@
             </p>
           </div>
         </div>
+        <!-- Question 4 -->
+        <div class="border-b border-gray-700 py-4">
+          <button (click)="toggleFaq(3)"
+            class="w-full flex justify-between items-center text-left text-lg font-medium focus:outline-none">
+            <span>Puis-je utiliser la solution gratuitement maintenant ?</span>
+            <svg [class.rotate-180]="faqs[3].open" class="w-6 h-6 transform transition-transform" fill="none"
+              stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </button>
+          <div *ngIf="faqs[3].open" class="mt-2 text-gray-300">
+            <p>
+              <strong>Oui, absolument !</strong> Vous pouvez créer votre compte et utiliser la solution
+              gratuitement dès maintenant. Même sans acheter de carte NFC, vous avez accès à toutes
+              les fonctionnalités. Une fois le système d'abonnement mis en place, certaines sections
+              seront soumises à abonnement, mais vous aurez déjà votre compte créé.
+            </p>
+          </div>
+        </div>
       </div>
       <div class="flex-1 flex flex-col gap-4">
-        <a
-          routerLink="/faq"
-          class="py-3 px-6 bg-gradient-to-r from-cyan-400 to-teal-400 text-black font-semibold rounded-full text-center hover:shadow-lg transition"
-        >
+        <a routerLink="/faq"
+          class="py-3 px-6 bg-gradient-to-r from-cyan-400 to-teal-400 text-black font-semibold rounded-full text-center hover:shadow-lg transition">
           Voir toutes les FAQ →
         </a>
-        <a
-          routerLink="/blog"
-          class="py-3 px-6 bg-gradient-to-r from-pink-400 to-purple-400 text-black font-semibold rounded-full text-center hover:shadow-lg transition"
-        >
+        <a routerLink="/blog"
+          class="py-3 px-6 bg-gradient-to-r from-pink-400 to-purple-400 text-black font-semibold rounded-full text-center hover:shadow-lg transition">
           Lire notre blog →
         </a>
-        <a
-          routerLink="/contact"
-          class="py-3 px-6 bg-gradient-to-r from-purple-500 to-pink-500 text-black font-semibold rounded-full text-center hover:shadow-lg transition"
-        >
+        <a routerLink="/contact"
+          class="py-3 px-6 bg-gradient-to-r from-purple-500 to-pink-500 text-black font-semibold rounded-full text-center hover:shadow-lg transition">
           Nous contacter →
         </a>
       </div>

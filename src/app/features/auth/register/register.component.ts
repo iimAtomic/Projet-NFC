@@ -29,6 +29,7 @@ export class RegisterComponent {
           [Validators.required, Validators.minLength(3), Validators.pattern(/^[a-zA-Z0-9_]+$/)],
         ],
         email: ['', [Validators.required, Validators.email]],
+        phoneNumber: ['', [Validators.required, Validators.pattern(/^(\+33|0)[1-9](\d{8})$/)]],
         password: ['', [Validators.required, Validators.minLength(6)]],
         confirmPassword: ['', [Validators.required]],
         fullName: ['', [Validators.required, Validators.minLength(2)]],
@@ -55,7 +56,7 @@ export class RegisterComponent {
       this.errorMessage = '';
       this.successMessage = '';
 
-      const { username, email, password, fullName } = this.registerForm.value;
+      const { username, email, password, fullName, phoneNumber } = this.registerForm.value;
 
       this.authService
         .register({
@@ -64,6 +65,7 @@ export class RegisterComponent {
           password: password!,
           fullName: fullName!,
           bio: '', // Bio par défaut vide
+          phoneNumber: phoneNumber!,
         })
         .subscribe({
           next: (user) => {

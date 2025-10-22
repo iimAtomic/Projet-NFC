@@ -60,6 +60,9 @@ export class UserStorageService {
         bio: 'Frontend engineer passionate about Angular, UX, and performance.',
         photoUrl: 'https://avatars.githubusercontent.com/u/000000?v=4',
         role: 'USER',
+        portfolioType: 'PORTFOLIO',
+        galleryEnabled: true,
+        phoneNumber: '+33612345678',
         experiences: [
           {
             company: 'Acme Corp',
@@ -94,6 +97,9 @@ export class UserStorageService {
         fullName: 'Tapfolio Admin',
         bio: 'Administrator account with full privileges.',
         role: 'ADMIN',
+        portfolioType: 'PORTFOLIO',
+        galleryEnabled: false,
+        phoneNumber: '+33698765432',
         experiences: [
           {
             company: 'Tapfolio',

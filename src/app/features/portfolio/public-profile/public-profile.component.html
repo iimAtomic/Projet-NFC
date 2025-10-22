@@ -10,11 +10,8 @@
     <div class="text-center mb-8">
       <!-- Profile Picture -->
       <div class="relative inline-block mb-6">
-        <img
-          [src]="user.photoUrl || 'https://via.placeholder.com/120x120'"
-          [alt]="user.fullName"
-          class="w-32 h-32 rounded-full border-4 border-accent object-cover"
-        />
+        <img [src]="user.photoUrl || 'https://via.placeholder.com/120x120'" [alt]="user.fullName"
+          class="w-32 h-32 rounded-full border-4 border-accent object-cover" />
       </div>
 
       <!-- Job Title -->
@@ -30,44 +27,45 @@
 
     <!-- Slogan Section -->
     <div class="text-center mb-8">
+      @if (user.portfolioType === 'PORTFOLIO') {
       <h2 class="text-4xl font-bold text-white mb-2">J'organise, je coordonne</h2>
       <h2 class="text-4xl font-bold mb-4">
         <span class="text-accent">et je facilite la gestion !</span>
       </h2>
+      } @else {
+      <h2 class="text-4xl font-bold text-white mb-2">Découvrez nos produits</h2>
+      <h2 class="text-4xl font-bold mb-4">
+        <span class="text-accent">de qualité exceptionnelle !</span>
+      </h2>
+      }
     </div>
 
     <!-- Description -->
     <div class="text-center mb-8">
       <p class="text-lg text-white leading-relaxed max-w-4xl mx-auto">
-        Forte d'une expérience en gestion administrative, organisation d'agenda, communication et
-        rédaction, je mets mes compétences au service de la direction pour assurer un fonctionnement
-        fluide et efficace.
+        {{ user.bio }}
       </p>
     </div>
 
     <!-- Action Buttons -->
     <div class="flex justify-center space-x-6 mb-16">
-      <button
-        class="bg-accent text-white px-10 py-4 rounded-xl font-bold text-lg hover:bg-accent-light transition-all transform hover:scale-105 shadow-accent"
-      >
-        Me contacter
+      <button (click)="saveContact()"
+        class="bg-accent text-white px-10 py-4 rounded-xl font-bold text-lg hover:bg-accent-light transition-all transform hover:scale-105 shadow-accent">
+        📱 Enregistrer le contact
       </button>
-      <button
-        class="border-2 border-accent text-white px-10 py-4 rounded-xl font-bold text-lg hover:bg-accent hover:text-white transition-all transform hover:scale-105"
-      >
-        M'enregistrer
+      <button (click)="callContact()"
+        class="border-2 border-accent text-white px-10 py-4 rounded-xl font-bold text-lg hover:bg-accent hover:text-white transition-all transform hover:scale-105">
+        📞 Appeler
       </button>
     </div>
 
-    <!-- Experience Section -->
-    <div class="mb-12">
+    <!-- Experience Section (Portfolio Mode Only) -->
+    <div class="mb-12" *ngIf="user.portfolioType === 'PORTFOLIO'">
       <h3 class="text-4xl font-bold text-accent mb-12 text-center">EXPÉRIENCE</h3>
 
       <div class="space-y-8" *ngIf="user.experiences && user.experiences.length > 0">
-        <div
-          *ngFor="let experience of user.experiences; let i = index"
-          class="bg-gray-900/50 backdrop-blur-sm rounded-2xl p-8 border border-gray-700 hover:border-accent/50 transition-all"
-        >
+        <div *ngFor="let experience of user.experiences; let i = index"
+          class="bg-gray-900/50 backdrop-blur-sm rounded-2xl p-8 border border-gray-700 hover:border-accent/50 transition-all">
           <div class="flex items-start space-x-4">
             <span class="text-3xl">{{ i === 0 ? '🤵' : i === 1 ? '💼' : '🍗' }}</span>
             <div class="flex-1">
@@ -93,35 +91,108 @@
       </div>
     </div>
 
+    <!-- Products Section (E-commerce Mode) -->
+    <div class="mb-12" *ngIf="user.portfolioType === 'ECOMMERCE'">
+      <h3 class="text-4xl font-bold text-accent mb-12 text-center">NOS PRODUITS</h3>
+
+      @if (user.products && user.products.length > 0) {
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <div *ngFor="let product of user.products"
+          class="group relative bg-gray-900/50 backdrop-blur-sm rounded-2xl overflow-hidden border border-gray-700 hover:border-accent/50 transition-all transform hover:scale-105">
+          <div class="aspect-square relative">
+            <img [src]="product.imageUrl" [alt]="product.name" class="w-full h-full object-cover" />
+
+            <!-- Overlay with product info -->
+            <div
+              class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-4">
+              <h4 class="text-white font-bold text-lg mb-1">{{ product.name }}</h4>
+              <p class="text-accent font-bold text-xl mb-2">{{ formatPrice(product.price) }}</p>
+              @if (product.description) {
+              <p class="text-gray-300 text-sm mb-3">{{ product.description }}</p>
+              }
+              <button (click)="contactWhatsApp(product)"
+                class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg font-semibold transition-all transform hover:scale-105">
+                💬 Commander
+              </button>
+            </div>
+          </div>
+
+          <!-- Product Info (visible by default) -->
+          <div class="p-4">
+            <h4 class="text-white font-bold text-lg mb-1">{{ product.name }}</h4>
+            <p class="text-accent font-bold text-xl mb-2">{{ formatPrice(product.price) }}</p>
+            @if (product.category) {
+            <p class="text-gray-400 text-sm mb-2">{{ product.category }}</p>
+            }
+            @if (product.description) {
+            <p class="text-gray-300 text-sm mb-3 line-clamp-2">{{ product.description }}</p>
+            }
+            <button (click)="contactWhatsApp(product)"
+              class="w-full bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg font-semibold transition-all">
+              💬 Commander via WhatsApp
+            </button>
+          </div>
+        </div>
+      </div>
+      } @else {
+      <div class="text-center py-12">
+        <div class="text-gray-400 text-lg">
+          <svg xmlns="http://www.w3.org/2000/svg" class="mx-auto h-16 w-16 text-gray-500 mb-4" fill="none"
+            viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
+              d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+          </svg>
+          <p>Aucun produit disponible pour le moment.</p>
+          <p class="text-sm mt-2">Revenez bientôt pour découvrir nos nouveautés !</p>
+        </div>
+      </div>
+      }
+    </div>
+
+    <!-- Gallery Section (Portfolio Mode) -->
+    <div class="mb-12"
+      *ngIf="user.portfolioType === 'PORTFOLIO' && user.galleryEnabled && user.gallery && user.gallery.length > 0">
+      <h3 class="text-4xl font-bold text-accent mb-12 text-center">GALERIE</h3>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <div *ngFor="let image of user.gallery"
+          class="group relative bg-gray-900/50 backdrop-blur-sm rounded-2xl overflow-hidden border border-gray-700 hover:border-accent/50 transition-all transform hover:scale-105">
+          <div class="aspect-square relative">
+            <img [src]="image.url" [alt]="image.title || 'Image de galerie'" class="w-full h-full object-cover" />
+
+            <!-- Overlay with image info -->
+            <div
+              class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-4">
+              @if (image.title) {
+              <h4 class="text-white font-bold text-lg mb-1">{{ image.title }}</h4>
+              }
+              @if (image.description) {
+              <p class="text-gray-300 text-sm">{{ image.description }}</p>
+              }
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- Social Links -->
     <div class="text-center" *ngIf="user.social">
       <div class="flex justify-center space-x-6">
-        <a
-          *ngIf="user.social.website"
-          [href]="user.social.website"
-          class="text-accent hover:text-purple-400 transition-colors"
-        >
+        <a *ngIf="user.social.website" [href]="user.social.website"
+          class="text-accent hover:text-purple-400 transition-colors">
           🌐 Website
         </a>
-        <a
-          *ngIf="user.social.github"
-          [href]="user.social.github"
-          class="text-accent hover:text-purple-400 transition-colors"
-        >
+        <a *ngIf="user.social.github" [href]="user.social.github"
+          class="text-accent hover:text-purple-400 transition-colors">
           🐙 GitHub
         </a>
-        <a
-          *ngIf="user.social.linkedin"
-          [href]="user.social.linkedin"
-          class="text-accent hover:text-purple-400 transition-colors"
-        >
+        <a *ngIf="user.social.linkedin" [href]="user.social.linkedin"
+          class="text-accent hover:text-purple-400 transition-colors">
           💼 LinkedIn
         </a>
-        <a
-          *ngIf="user.social.twitter"
-          [href]="user.social.twitter"
-          class="text-accent hover:text-purple-400 transition-colors"
-        >
+        <a *ngIf="user.social.twitter" [href]="user.social.twitter"
+          class="text-accent hover:text-purple-400 transition-colors">
           🐦 Twitter
         </a>
       </div>
@@ -129,10 +200,7 @@
   </div>
 
   <!-- Loading State -->
-  <div
-    *ngIf="(user$ | async) === null"
-    class="min-h-screen bg-background flex items-center justify-center"
-  >
+  <div *ngIf="(user$ | async) === null" class="min-h-screen bg-background flex items-center justify-center">
     <div class="text-white text-xl">Chargement...</div>
   </div>
 </div>

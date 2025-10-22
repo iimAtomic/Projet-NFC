@@ -1,4 +1,4 @@
-/* Styles spécifiques au composant profil public */
+/* Styles spécifiques au composant produits */
 .line-clamp-2 {
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -6,13 +6,30 @@
   overflow: hidden;
 }
 
-/* Animation pour les produits et images */
+/* Animation pour les produits */
 .group:hover img {
   transform: scale(1.05);
   transition: transform 0.3s ease;
 }
 
-/* Responsive grid pour les produits et galerie */
+/* Style pour le file input */
+input[type='file']::-webkit-file-upload-button {
+  background: linear-gradient(to right, #8b5cf6, #ec4899);
+  color: black;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  margin-right: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+input[type='file']::-webkit-file-upload-button:hover {
+  background: linear-gradient(to right, #7c3aed, #db2777);
+}
+
+/* Responsive grid pour les produits */
 @media (max-width: 640px) {
   .grid {
     grid-template-columns: repeat(1, minmax(0, 1fr));

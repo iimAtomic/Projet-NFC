@@ -38,6 +38,7 @@ export class AuthService {
     password: string;
     fullName: string;
     bio: string;
+    phoneNumber: string;
   }): Observable<UserProfile | null> {
     // Vérifier si le username existe déjà
     if (this.userStorageService.isUsernameTaken(userData.username)) {
@@ -58,6 +59,9 @@ export class AuthService {
         fullName: userData.fullName,
         bio: userData.bio,
         role: 'USER',
+        portfolioType: 'PORTFOLIO',
+        galleryEnabled: true,
+        phoneNumber: userData.phoneNumber,
         experiences: [],
         social: {
           website: '',

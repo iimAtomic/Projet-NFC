@@ -3,12 +3,14 @@ import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, FormArray, Validators, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../../core/services/auth.service';
-import { UserProfile, Experience } from '../../core/data/mock-users';
+import { UserProfile, Experience, GalleryImage, Product, PortfolioType } from '../../core/data/mock-users';
+import { GalleryComponent } from '../portfolio/gallery/gallery.component';
+import { ProductsComponent } from '../portfolio/products/products.component';
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, GalleryComponent, ProductsComponent],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css',
 })
@@ -17,6 +19,11 @@ export class DashboardComponent implements OnInit {
   currentUser: UserProfile | null = null;
   isSaving = false;
   saveMessage = '';
+  galleryImages: GalleryImage[] = [];
+  products: Product[] = [];
+  portfolioType: PortfolioType = 'PORTFOLIO';
+  galleryEnabled = true;
+  whatsappNumber = '';
 
   private readonly fb = inject(FormBuilder);
   private readonly authService = inject(AuthService);
@@ -27,6 +34,10 @@ export class DashboardComponent implements OnInit {
       fullName: ['', [Validators.required, Validators.minLength(2)]],
       bio: ['', [Validators.required, Validators.minLength(10)]],
       photoUrl: [''],
+      portfolioType: ['PORTFOLIO'],
+      phoneNumber: [''],
+      whatsappNumber: [''],
+      galleryEnabled: [true],
       social: this.fb.group({
         website: [''],
         github: [''],
@@ -56,6 +67,10 @@ export class DashboardComponent implements OnInit {
         fullName: this.currentUser.fullName,
         bio: this.currentUser.bio,
         photoUrl: this.currentUser.photoUrl || '',
+        portfolioType: this.currentUser.portfolioType || 'PORTFOLIO',
+        phoneNumber: this.currentUser.phoneNumber || '',
+        whatsappNumber: this.currentUser.whatsappNumber || '',
+        galleryEnabled: this.currentUser.galleryEnabled !== undefined ? this.currentUser.galleryEnabled : true,
         social: {
           website: this.currentUser.social?.website || '',
           github: this.currentUser.social?.github || '',
@@ -71,6 +86,17 @@ export class DashboardComponent implements OnInit {
           this.addExperience(exp);
         });
       }
+
+      // Load gallery images
+      this.galleryImages = this.currentUser.gallery || [];
+
+      // Load products
+      this.products = this.currentUser.products || [];
+
+      // Load portfolio settings
+      this.portfolioType = this.currentUser.portfolioType || 'PORTFOLIO';
+      this.galleryEnabled = this.currentUser.galleryEnabled !== undefined ? this.currentUser.galleryEnabled : true;
+      this.whatsappNumber = this.currentUser.whatsappNumber || '';
     }
   }
 
@@ -102,8 +128,14 @@ export class DashboardComponent implements OnInit {
         fullName: formData.fullName,
         bio: formData.bio,
         photoUrl: formData.photoUrl,
+        portfolioType: formData.portfolioType,
+        phoneNumber: formData.phoneNumber,
+        whatsappNumber: formData.whatsappNumber,
+        galleryEnabled: formData.galleryEnabled,
         social: formData.social,
         experiences: formData.experiences,
+        products: this.products,
+        gallery: this.galleryImages,
       };
 
       this.authService.updateProfile(updates).subscribe({
@@ -149,5 +181,55 @@ export class DashboardComponent implements OnInit {
     if (this.currentUser) {
       window.open(this.getPublicProfileUrl(), '_blank');
     }
+  }
+
+  /**
+   * Gestion de la galerie d'images
+   */
+  onAddImage(image: GalleryImage): void {
+    this.galleryImages.push(image);
+  }
+
+  onRemoveImage(imageId: string): void {
+    this.galleryImages = this.galleryImages.filter(img => img.id !== imageId);
+  }
+
+  onUpdateImage(updatedImage: GalleryImage): void {
+    const index = this.galleryImages.findIndex(img => img.id === updatedImage.id);
+    if (index !== -1) {
+      this.galleryImages[index] = updatedImage;
+    }
+  }
+
+  /**
+   * Gestion des produits e-commerce
+   */
+  onAddProduct(product: Product): void {
+    this.products.push(product);
+  }
+
+  onRemoveProduct(productId: string): void {
+    this.products = this.products.filter(prod => prod.id !== productId);
+  }
+
+  onUpdateProduct(updatedProduct: Product): void {
+    const index = this.products.findIndex(prod => prod.id === updatedProduct.id);
+    if (index !== -1) {
+      this.products[index] = updatedProduct;
+    }
+  }
+
+  /**
+   * Changement de type de portfolio
+   */
+  onPortfolioTypeChange(): void {
+    this.portfolioType = this.profileForm.get('portfolioType')?.value;
+  }
+
+  /**
+   * Vérifie si le portfolio est de type e-commerce
+   */
+  isEcommerceMode(): boolean {
+    return this.portfolioType === 'ECOMMERCE';
   }
 }

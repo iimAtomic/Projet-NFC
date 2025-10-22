@@ -1,23 +1,48 @@
 export type Role = 'USER' | 'ADMIN';
+export type PortfolioType = 'PORTFOLIO' | 'ECOMMERCE';
 
 export interface Experience {
   company: string;
   role: string;
-  startDate: string; 
-  endDate?: string; 
+  startDate: string;
+  endDate?: string;
   description: string;
+}
+
+export interface GalleryImage {
+  id: string;
+  url: string;
+  title?: string;
+  description?: string;
+  uploadedAt: string;
+}
+
+export interface Product {
+  id: string;
+  name: string;
+  price: number;
+  imageUrl: string;
+  description?: string;
+  category?: string;
+  createdAt: string;
 }
 
 export interface UserProfile {
   id: string;
   username: string;
   email: string;
-  password: string; 
+  password: string;
   fullName: string;
   bio: string;
   photoUrl?: string;
   role: Role;
+  portfolioType: PortfolioType;
   experiences: Experience[];
+  products?: Product[];
+  gallery?: GalleryImage[];
+  galleryEnabled: boolean;
+  phoneNumber?: string;
+  whatsappNumber?: string;
   social?: {
     website?: string;
     github?: string;
@@ -38,6 +63,7 @@ export const USERS: UserProfile[] = [
     bio: 'Frontend engineer passionate about Angular, UX, and performance.',
     photoUrl: 'https://avatars.githubusercontent.com/u/000000?v=4',
     role: 'USER',
+    portfolioType: 'PORTFOLIO',
     experiences: [
       {
         company: 'Acme Corp',
@@ -54,6 +80,8 @@ export const USERS: UserProfile[] = [
         description: 'Delivered SPA dashboards and public marketing sites with SSR and accessibility focus.',
       },
     ],
+    gallery: [],
+    galleryEnabled: true,
     social: {
       website: 'https://jdoe.dev',
       github: 'https://github.com/jdoe',
@@ -71,6 +99,7 @@ export const USERS: UserProfile[] = [
     fullName: 'Tapfolio Admin',
     bio: 'Administrator account with full privileges.',
     role: 'ADMIN',
+    portfolioType: 'PORTFOLIO',
     experiences: [
       {
         company: 'Tapfolio',
@@ -79,6 +108,8 @@ export const USERS: UserProfile[] = [
         description: 'Oversees user management and platform reliability.',
       },
     ],
+    gallery: [],
+    galleryEnabled: false,
     social: {
       website: 'https://tapfolio.dev',
       github: 'https://github.com/tapfolio',
